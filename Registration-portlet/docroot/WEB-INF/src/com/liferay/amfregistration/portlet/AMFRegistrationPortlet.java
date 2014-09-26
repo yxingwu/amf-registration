@@ -312,12 +312,6 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 		boolean hasNumber = false;
 		boolean hasSpecialCharacter = false;
 
-		char[] specialCharacters = new char[] {
-			'.', '!', '#', '$', '%', '&', '\'', '*', '+', '-', '/', '=', '?',
-			'^', '_', '`', '{', '|', '}', '~', '@', ',', '"', '(', ')', '\\',
-			':'
-		};
-
 		for (char c : password.toCharArray()) {
 			if (Character.isUpperCase(c)) {
 				hasUppercase = true;
@@ -326,7 +320,7 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 				hasNumber = true;
 			}
 			else {
-				for (char specialCharacter : specialCharacters) {
+				for (char specialCharacter : _SPECIAL_CHARACTERS) {
 					if (c == specialCharacter) {
 						hasSpecialCharacter = true;
 					}
@@ -341,4 +335,9 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 		throw new UserPasswordException(UserPasswordException.PASSWORD_INVALID);
 	}
 
+	private static final char[] _SPECIAL_CHARACTERS = new char[] {
+		'.', '!', '#', '$', '%', '&', '\'', '*', '+', '-', '/', '=', '?',
+		'^', '_', '`', '{', '|', '}', '~', '@', ',', '"', '(', ')', '\\',
+		':'
+	};
 }
