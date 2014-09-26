@@ -1,0 +1,184 @@
+<%--
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of the Liferay Enterprise
+ * Subscription License ("License"). You may not use this file except in
+ * compliance with the License. You can obtain a copy of the License by
+ * contacting Liferay, Inc. See the License for the specific language governing
+ * permissions and limitations under the License, including but not limited to
+ * distribution rights of the Software.
+ *
+ *
+ *
+ */
+--%>
+
+<%
+Contact selContact = null;
+
+Calendar birthday = CalendarFactoryUtil.getCalendar();
+
+birthday.set(Calendar.MONTH, Calendar.JANUARY);
+birthday.set(Calendar.DATE, 1);
+birthday.set(Calendar.YEAR, 1970);
+%>
+
+<portlet:actionURL name="addUser" var="addUserURL">
+	<portlet:param name="mvcPath" value='<%= "/amfRegistration/view.jsp" %>'/>
+	<portlet:param name="redirect" value="<%= redirect %>" />
+</portlet:actionURL>
+
+<aui:form action="<%= addUserURL %>" method="post">
+	<liferay-ui:error exception="<%= AddressCityException.class %>" message="please-enter-a-valid-city" />
+
+	<liferay-ui:error exception="<%= AddressStreetException.class %>">
+
+		<%
+		AddressStreetException ase = (AddressStreetException)errorException;
+		%>
+
+		<liferay-ui:message key="<%= ase.getMessage() %>" />
+	</liferay-ui:error>
+
+	<liferay-ui:error exception="<%= AddressZipException.class %>" message="please-enter-a-valid-postal-code" />
+	<liferay-ui:error exception="<%= CompanyMaxUsersException.class %>" message="unable-to-create-user-account-because-the-maximum-number-of-users-has-been-reached" />
+	<liferay-ui:error exception="<%= ContactBirthdayException.class %>" message="please-enter-a-valid-date" />
+	<liferay-ui:error exception="<%= ContactFirstNameException.class %>" message="please-enter-a-valid-first-name" />
+	<liferay-ui:error exception="<%= ContactLastNameException.class %>" message="please-enter-a-valid-last-name" />
+	<liferay-ui:error exception="<%= DuplicateUserEmailAddressException.class %>" message="the-email-address-you-requested-is-already-taken" />
+	<liferay-ui:error exception="<%= DuplicateUserScreenNameException.class %>" focusField="userName" message="the-user-name-you-requested-is-already-taken" />
+	<liferay-ui:error exception="<%= EmailAddressException.class %>" message="please-enter-a-valid-email-address" />
+
+	<liferay-ui:error exception="<%= GroupFriendlyURLException.class %>">
+
+		<%
+		GroupFriendlyURLException gfurle = (GroupFriendlyURLException)errorException;
+		%>
+
+		<c:if test="<%= gfurle.getType() == GroupFriendlyURLException.DUPLICATE %>">
+			<liferay-ui:message key="the-user-name-you-requested-is-associated-with-an-existing-friendly-url" />
+		</c:if>
+	</liferay-ui:error>
+
+	<liferay-ui:error exception="<%= PhoneNumberException.class %>">
+
+		<%
+		PhoneNumberException pne = (PhoneNumberException)errorException;
+		%>
+
+		<liferay-ui:message key="<%= pne.getMessage() %>" />
+	</liferay-ui:error>
+
+	<liferay-ui:error exception="<%= ReservedUserScreenNameException.class %>" message="the-user-name-you-requested-is-reserved" />
+	<liferay-ui:error exception="<%= TermsOfUseException.class %>" message="you-must-agree-to-the-terms-of-use" />
+
+	<liferay-ui:error exception="<%= UserPasswordException.class %>">
+
+		<%
+		UserPasswordException upe = (UserPasswordException)errorException;
+		%>
+
+		<c:if test="<%= upe.getType() == UserPasswordException.PASSWORD_INVALID %>">
+			<liferay-ui:message key="that-password-is-invalid-please-enter-in-a-different-password" />
+		</c:if>
+
+		<c:if test="<%= upe.getType() == UserPasswordException.PASSWORD_LENGTH %>">
+			<liferay-ui:message key="that-password-is-too-short-please-make-sure-your-password-is-equal-or-greater-than-6-characters" />
+		</c:if>
+
+		<c:if test="<%= upe.getType() == UserPasswordException.PASSWORDS_DO_NOT_MATCH %>">
+			<liferay-ui:message key="the-passwords-you-entered-do-not-match-each-other-please-re-enter-your-password" />
+		</c:if>
+	</liferay-ui:error>
+
+	<liferay-ui:error exception="<%= UserScreenNameException.class %>" message="please-enter-a-valid-user-name" />
+
+	<aui:fieldset label="basic-information">
+		<aui:fieldset cssClass="span6">
+			<aui:input label="first-name" name="first_name" required="<%= true %>" />
+			<aui:input label="last-name" name="last_name" required="<%= true %>" />
+			<aui:input label="email-address" name="email_address" required="<%= true %>" />
+			<aui:input label="user-name" name="username" required="<%= true %>" />
+		</aui:fieldset>
+
+		<aui:fieldset cssClass="span6">
+			<aui:select label="gender" name="male" required="<%= true %>">
+				<aui:option label="male" value="true" />
+				<aui:option label="female" value="false" />
+			</aui:select>
+
+			<aui:input bean="<%= selContact %>" fieldParam="b_" model="<%= Contact.class %>" name="birthday" required="<%= true %>" value="<%= birthday %>" />
+			<aui:input autocomplete="off" label="password" name="password1" required="<%= true %>" type="password" />
+			<aui:input autocomplete="off" label="confirm-password" name="password2" required="<%= true %>" type="password" />
+		</aui:fieldset>
+	</aui:fieldset>
+
+	<aui:fieldset label="phone">
+		<aui:fieldset cssClass="span6">
+			<aui:input label="home-phone" name="home_phone" />
+		</aui:fieldset>
+
+		<aui:fieldset cssClass="span6">
+			<aui:input label="mobile-phone" name="mobile_phone" />
+		</aui:fieldset>
+	</aui:fieldset>
+
+	<aui:fieldset label="billing-address">
+		<aui:fieldset cssClass="span6">
+			<aui:input label="address1" name="address" required="<%= true %>" />
+			<aui:input label="address2" name="address2" />
+			<aui:input label="city" name="city" required="<%= true %>" />
+		</aui:fieldset>
+
+		<aui:fieldset cssClass="span6">
+			<aui:select label="state" name="state" required="<%= true %>">
+
+				<%
+				List<Country> countries = CountryServiceUtil.getCountries();
+
+				for (Country country : countries) {
+				%>
+
+					<aui:option label="<%= CountryConstants.NAME_PREFIX + country.getName() %>" value="<%= country.getCountryId() %>" />
+
+				<%
+				}
+				%>
+
+			</aui:select>
+			<aui:input label="zip-code" name="zip" required="<%= true %>" />
+		</aui:fieldset>
+	</aui:fieldset>
+
+	<aui:fieldset label="misc">
+		<aui:fieldset cssClass="span6">
+			<aui:select cssClass="security-question" label="security-question" name="security_question" required="<%= true %>">
+
+				<%
+				for (String question : PortletPropsValues.USERS_SECURITY_QUESTIONS) {
+				%>
+
+					<aui:option label="<%= question %>" value="<%= question %>" />
+
+				<%
+				}
+				%>
+
+			</aui:select>
+
+			<aui:input label="answer" name="security_answer" required="<%= true %>" />
+		</aui:fieldset>
+
+		<aui:fieldset cssClass="span6">
+			<aui:field-wrapper label="terms-of-use-required">
+				<aui:input label="terms-info" name="accepted_tou" type="checkbox" />
+			</aui:field-wrapper>
+		</aui:fieldset>
+	</aui:fieldset>
+
+	<aui:button-row>
+		<aui:button name="saveButton"  type="submit" value="save" />
+		<aui:button href="<%= redirect %>" type="cancel" />
+	</aui:button-row>
+</aui:form>
