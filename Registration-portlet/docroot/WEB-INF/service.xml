@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.liferay.monitor">
+	<author>liferay</author>
+	<namespace>amf</namespace>
+
+	<entity name="MonitorEvent" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="eventId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="userId" type="long" />
+		<column name="ip" type="String" />
+
+
+		<!-- Other fields -->
+
+		<column name="eventDate" type="Date" />
+		<column name="eventType" type="int" />
+
+		<!-- Order -->
+
+		<order by="desc">
+			<order-column name="eventDate" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="eventType" return-type="Collection">
+			<finder-column name="eventType" />
+		</finder>
+		<finder name="userId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="U_E" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="eventType" />
+		</finder>
+	</entity>
+</service-builder>

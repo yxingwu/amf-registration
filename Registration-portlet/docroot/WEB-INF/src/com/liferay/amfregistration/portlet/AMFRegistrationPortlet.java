@@ -14,6 +14,7 @@
 
 package com.liferay.amfregistration.portlet;
 
+import com.liferay.monitor.service.MonitorEventLocalServiceUtil;
 import com.liferay.portal.AddressCityException;
 import com.liferay.portal.AddressStreetException;
 import com.liferay.portal.AddressZipException;
@@ -50,6 +51,7 @@ import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextFactory;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.registration.util.MonitorEventTypes;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
 import java.util.Date;
@@ -69,8 +71,7 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 			actionRequest, "email_address");
 		String userName = ParamUtil.getString(actionRequest, "username");
 		boolean male = ParamUtil.getBoolean(actionRequest, "male");
-		int birthdayMonth = ParamUtil.getInteger(
-			actionRequest, "b_Month");
+		int birthdayMonth = ParamUtil.getInteger(actionRequest, "b_Month");
 		int birthdayDay = ParamUtil.getInteger(actionRequest, "b_Day");
 		int birthdayYear = ParamUtil.getInteger(actionRequest, "b_Year");
 		String password1 = ParamUtil.getString(actionRequest, "password1");
@@ -114,6 +115,12 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 
 		UserLocalServiceUtil.updateAgreedToTermsOfUse(
 			user.getUserId(), termsOfUse);
+
+		// Monitor
+
+		MonitorEventLocalServiceUtil.addMonitorEvent(
+			user.getUserId(), "0.0.0.0", MonitorEventTypes.REGISTRATION,
+			serviceContext);
 	}
 
 	protected void addAddress(
@@ -336,8 +343,9 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 	}
 
 	private static final char[] _SPECIAL_CHARACTERS = new char[] {
-		'.', '!', '#', '$', '%', '&', '\'', '*', '+', '-', '/', '=', '?',
-		'^', '_', '`', '{', '|', '}', '~', '@', ',', '"', '(', ')', '\\',
+		'.', '!', '#', '$', '%', '&', '\'', '*', '+', '-', '/', '=', '?', '^',
+		'_', '`', '{', '|', '}', '~', '@', ',', '"', '(', ')', '\\',
 		':'
 	};
+
 }

@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
  *
@@ -12,15 +11,19 @@
  *
  *
  */
---%>
 
-<%@ include file="/init.jsp" %>
+package com.liferay.monitor.service.permission;
 
-<c:choose>
-	<c:when test="<%= themeDisplay.isSignedIn() %>">
-		<liferay-ui:message key='<%= LanguageUtil.format(pageContext, "you-are-signed-in-as-x", themeDisplay.getUser().getFullName(), false) %>' />
-	</c:when>
-	<c:otherwise>
-		<%@ include file="/amfRegistration/create_account.jspf" %>
-	</c:otherwise>
-</c:choose>
+import com.liferay.portal.security.permission.PermissionChecker;
+public class MonitorEventPermission {
+
+	public static final String RESOURCE_NAME = "com.liferay.monitor.model";
+
+	public static boolean contains(
+		PermissionChecker permissionChecker, long groupId, String actionId) {
+
+		return permissionChecker.hasPermission(
+			groupId, RESOURCE_NAME, groupId, actionId);
+	}
+
+}

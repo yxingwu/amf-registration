@@ -1,4 +1,3 @@
-<%--
 /**
  * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
  *
@@ -12,15 +11,13 @@
  *
  *
  */
---%>
 
-<%@ include file="/init.jsp" %>
+package com.liferay.registration.util;
 
-<c:choose>
-	<c:when test="<%= themeDisplay.isSignedIn() %>">
-		<liferay-ui:message key='<%= LanguageUtil.format(pageContext, "you-are-signed-in-as-x", themeDisplay.getUser().getFullName(), false) %>' />
-	</c:when>
-	<c:otherwise>
-		<%@ include file="/amfRegistration/create_account.jspf" %>
-	</c:otherwise>
-</c:choose>
+public class MonitorEventTypes {
+
+	public static final int LOGIN = 0;
+
+	public static final int REGISTRATION = 1;
+
+}
