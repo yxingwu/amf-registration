@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.monitor.model.MonitorEvent">
+		<field name="eventId" type="long" />
+		<field name="userId" type="long" />
+		<field name="ip" type="String" />
+		<field name="eventDate" type="Date" />
+		<field name="eventType" type="int" />
+	</model>
+</model-hints>

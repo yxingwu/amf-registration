@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.liferay.monitor.model.MonitorEvent" />
+	<class name="com.liferay.monitor.model.impl.MonitorEventImpl" table="amf_MonitorEvent">
+		<cache usage="read-write" />
+		<id name="eventId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ip" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="eventDate" type="org.hibernate.type.TimestampType" />
+		<property name="eventType" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+</hibernate-mapping>
