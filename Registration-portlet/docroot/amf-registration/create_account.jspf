@@ -25,7 +25,7 @@ birthday.set(Calendar.YEAR, 1970);
 %>
 
 <portlet:actionURL name="addUser" var="addUserURL">
-	<portlet:param name="mvcPath" value='<%= "/amfRegistration/view.jsp" %>'/>
+	<portlet:param name="mvcPath" value='<%= "/amf-registration/view.jsp" %>'/>
 	<portlet:param name="redirect" value="<%= redirect %>" />
 </portlet:actionURL>
 

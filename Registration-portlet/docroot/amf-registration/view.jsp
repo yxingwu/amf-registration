@@ -21,6 +21,6 @@
 		<liferay-ui:message key='<%= LanguageUtil.format(pageContext, "you-are-signed-in-as-x", themeDisplay.getUser().getFullName(), false) %>' />
 	</c:when>
 	<c:otherwise>
-		<%@ include file="/amfRegistration/create_account.jspf" %>
+		<%@ include file="/amf-registration/create_account.jspf" %>
 	</c:otherwise>
 </c:choose>

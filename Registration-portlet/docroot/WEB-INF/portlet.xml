@@ -11,7 +11,7 @@
 		</init-param>
 		<init-param>
 			<name>view-template</name>
-			<value>/amfRegistration/view.jsp</value>
+			<value>/amf-registration/view.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
@@ -42,7 +42,7 @@
 		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/amfEventMonitor/view.jsp</value>
+			<value>/amf-event-monitor/view.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>

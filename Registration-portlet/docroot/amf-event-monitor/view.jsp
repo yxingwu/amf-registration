@@ -41,7 +41,7 @@ String tabs1 = ParamUtil.getString(request, "tabs1", "all");
 
 PortletURL portletURL = renderResponse.createRenderURL();
 
-portletURL.setParameter("mvcPath", "/amfEventMonitor/view.jsp");
+portletURL.setParameter("mvcPath", "/amf-event-monitor/view.jsp");
 %>
 
 <liferay-ui:tabs
@@ -60,12 +60,12 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 
 <c:choose>
 	<c:when test='<%= tabs1.equals("all") %>'>
-		<%@ include file="/amfEventMonitor/view_all_events.jspf" %>
+		<%@ include file="/amf-event-monitor/view_all_events.jspf" %>
 	</c:when>
 	<c:when test='<%= tabs1.equals("registration") %>'>
-		<%@ include file="/amfEventMonitor/view_registration_events.jspf" %>
+		<%@ include file="/amf-event-monitor/view_registration_events.jspf" %>
 	</c:when>
 	<c:otherwise>
-		<%@ include file="/amfEventMonitor/view_login_events.jspf" %>
+		<%@ include file="/amf-event-monitor/view_login_events.jspf" %>
 	</c:otherwise>
 </c:choose>
