@@ -134,15 +134,15 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 
 		_methodParameterTypes22 = new String[] { "long", "int", "int", "int" };
 
-		_methodName23 = "getMonitorEventsCount";
+		_methodName23 = "getMonitorEventsByTypeCount";
 
 		_methodParameterTypes23 = new String[] { "int" };
 
-		_methodName24 = "getMonitorEventsCount";
+		_methodName24 = "getMonitorEventsByUserIdCount";
 
 		_methodParameterTypes24 = new String[] { "long" };
 
-		_methodName25 = "getMonitorEventsCount";
+		_methodName25 = "getMonitorEventsByUserIdAndTypeCount";
 
 		_methodParameterTypes25 = new String[] { "long", "int" };
 	}
@@ -830,7 +830,7 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public int getMonitorEventsCount(int eventType)
+	public int getMonitorEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -858,7 +858,7 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public int getMonitorEventsCount(long userId)
+	public int getMonitorEventsByUserIdCount(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -886,7 +886,7 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public int getMonitorEventsCount(long userId, int eventType)
+	public int getMonitorEventsByUserIdAndTypeCount(long userId, int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 

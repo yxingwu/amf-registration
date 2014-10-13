@@ -133,15 +133,15 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		_methodParameterTypes41 = new String[] { "long", "int", "int", "int" };
 
-		_methodName42 = "getMonitorEventsCount";
+		_methodName42 = "getMonitorEventsByTypeCount";
 
 		_methodParameterTypes42 = new String[] { "int" };
 
-		_methodName43 = "getMonitorEventsCount";
+		_methodName43 = "getMonitorEventsByUserIdCount";
 
 		_methodParameterTypes43 = new String[] { "long" };
 
-		_methodName44 = "getMonitorEventsCount";
+		_methodName44 = "getMonitorEventsByUserIdAndTypeCount";
 
 		_methodParameterTypes44 = new String[] { "long", "int" };
 	}
@@ -279,17 +279,17 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		if (_methodName42.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes42, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsCount(((Integer)arguments[0]).intValue());
+			return MonitorEventLocalServiceUtil.getMonitorEventsByTypeCount(((Integer)arguments[0]).intValue());
 		}
 
 		if (_methodName43.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes43, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsCount(((Long)arguments[0]).longValue());
+			return MonitorEventLocalServiceUtil.getMonitorEventsByUserIdCount(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName44.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes44, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsCount(((Long)arguments[0]).longValue(),
+			return MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndTypeCount(((Long)arguments[0]).longValue(),
 				((Integer)arguments[1]).intValue());
 		}
 

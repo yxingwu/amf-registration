@@ -304,19 +304,21 @@ public class MonitorEventLocalServiceUtil {
 			end);
 	}
 
-	public static int getMonitorEventsCount(int eventType)
+	public static int getMonitorEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEventsCount(eventType);
+		return getService().getMonitorEventsByTypeCount(eventType);
 	}
 
-	public static int getMonitorEventsCount(long userId)
+	public static int getMonitorEventsByUserIdCount(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEventsCount(userId);
+		return getService().getMonitorEventsByUserIdCount(userId);
 	}
 
-	public static int getMonitorEventsCount(long userId, int eventType)
+	public static int getMonitorEventsByUserIdAndTypeCount(long userId,
+		int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEventsCount(userId, eventType);
+		return getService()
+				   .getMonitorEventsByUserIdAndTypeCount(userId, eventType);
 	}
 
 	public static void clearService() {

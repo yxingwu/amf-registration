@@ -270,14 +270,14 @@ public interface MonitorEventLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getMonitorEventsCount(int eventType)
+	public int getMonitorEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getMonitorEventsCount(long userId)
+	public int getMonitorEventsByUserIdCount(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getMonitorEventsCount(long userId, int eventType)
+	public int getMonitorEventsByUserIdAndTypeCount(long userId, int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 }

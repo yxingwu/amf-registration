@@ -321,21 +321,22 @@ public class MonitorEventLocalServiceWrapper implements MonitorEventLocalService
 	}
 
 	@Override
-	public int getMonitorEventsCount(int eventType)
+	public int getMonitorEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _monitorEventLocalService.getMonitorEventsCount(eventType);
+		return _monitorEventLocalService.getMonitorEventsByTypeCount(eventType);
 	}
 
 	@Override
-	public int getMonitorEventsCount(long userId)
+	public int getMonitorEventsByUserIdCount(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _monitorEventLocalService.getMonitorEventsCount(userId);
+		return _monitorEventLocalService.getMonitorEventsByUserIdCount(userId);
 	}
 
 	@Override
-	public int getMonitorEventsCount(long userId, int eventType)
+	public int getMonitorEventsByUserIdAndTypeCount(long userId, int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _monitorEventLocalService.getMonitorEventsCount(userId, eventType);
+		return _monitorEventLocalService.getMonitorEventsByUserIdAndTypeCount(userId,
+			eventType);
 	}
 
 	/**
