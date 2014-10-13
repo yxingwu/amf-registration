@@ -248,27 +248,27 @@ public interface MonitorEventLocalService extends BaseLocalService,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
 
-	public com.liferay.monitor.model.MonitorEvent addMonitorEvent(long userId,
+	public com.liferay.monitor.model.MonitorEvent addEvent(long userId,
 		java.lang.String ip, int eventType,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByType(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getEventsByType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getMonitorEventsByTypeCount(int eventType)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByTypeAndUserId(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getEventsByTypeAndUser(
 		int eventType, long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getMonitorEventsByTypeAndUserIdCount(int eventType, long userId)
+	public int getEventsByTypeAndUserCount(int eventType, long userId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 }

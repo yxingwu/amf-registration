@@ -275,38 +275,34 @@ public class MonitorEventLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
-	public static com.liferay.monitor.model.MonitorEvent addMonitorEvent(
-		long userId, java.lang.String ip, int eventType,
+	public static com.liferay.monitor.model.MonitorEvent addEvent(long userId,
+		java.lang.String ip, int eventType,
 		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .addMonitorEvent(userId, ip, eventType, serviceContext);
+		return getService().addEvent(userId, ip, eventType, serviceContext);
 	}
 
-	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByType(
+	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getEventsByType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEventsByType(eventType, start, end);
+		return getService().getEventsByType(eventType, start, end);
 	}
 
-	public static int getMonitorEventsByTypeCount(int eventType)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEventsByTypeCount(eventType);
-	}
-
-	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByTypeAndUserId(
+	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getEventsByTypeAndUser(
 		int eventType, long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .getMonitorEventsByTypeAndUserId(eventType, userId, start,
-			end);
+		return getService().getEventsByTypeAndUser(eventType, userId, start, end);
 	}
 
-	public static int getMonitorEventsByTypeAndUserIdCount(int eventType,
-		long userId) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .getMonitorEventsByTypeAndUserIdCount(eventType, userId);
+	public static int getEventsByTypeAndUserCount(int eventType, long userId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getEventsByTypeAndUserCount(eventType, userId);
+	}
+
+	public static int getEventsByTypeCount(int eventType)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getEventsByTypeCount(eventType);
 	}
 
 	public static void clearService() {

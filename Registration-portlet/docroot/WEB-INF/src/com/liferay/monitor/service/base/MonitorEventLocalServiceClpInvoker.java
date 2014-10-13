@@ -114,28 +114,28 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		_methodParameterTypes33 = new String[] { "java.lang.String" };
 
-		_methodName38 = "addMonitorEvent";
+		_methodName38 = "addEvent";
 
 		_methodParameterTypes38 = new String[] {
 				"long", "java.lang.String", "int",
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName39 = "getMonitorEventsByType";
+		_methodName39 = "getEventsByType";
 
 		_methodParameterTypes39 = new String[] { "int", "int", "int" };
 
-		_methodName40 = "getMonitorEventsByTypeCount";
+		_methodName40 = "getEventsByTypeAndUser";
 
-		_methodParameterTypes40 = new String[] { "int" };
+		_methodParameterTypes40 = new String[] { "int", "long", "int", "int" };
 
-		_methodName41 = "getMonitorEventsByTypeAndUserId";
+		_methodName41 = "getEventsByTypeAndUserCount";
 
-		_methodParameterTypes41 = new String[] { "int", "long", "int", "int" };
+		_methodParameterTypes41 = new String[] { "int", "long" };
 
-		_methodName42 = "getMonitorEventsByTypeAndUserIdCount";
+		_methodName42 = "getEventsByTypeCount";
 
-		_methodParameterTypes42 = new String[] { "int", "long" };
+		_methodParameterTypes42 = new String[] { "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -241,7 +241,7 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		if (_methodName38.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes38, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.addMonitorEvent(((Long)arguments[0]).longValue(),
+			return MonitorEventLocalServiceUtil.addEvent(((Long)arguments[0]).longValue(),
 				(java.lang.String)arguments[1],
 				((Integer)arguments[2]).intValue(),
 				(com.liferay.portal.service.ServiceContext)arguments[3]);
@@ -249,28 +249,28 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		if (_methodName39.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes39, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsByType(((Integer)arguments[0]).intValue(),
+			return MonitorEventLocalServiceUtil.getEventsByType(((Integer)arguments[0]).intValue(),
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName40.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsByTypeCount(((Integer)arguments[0]).intValue());
-		}
-
-		if (_methodName41.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsByTypeAndUserId(((Integer)arguments[0]).intValue(),
+			return MonitorEventLocalServiceUtil.getEventsByTypeAndUser(((Integer)arguments[0]).intValue(),
 				((Long)arguments[1]).longValue(),
 				((Integer)arguments[2]).intValue(),
 				((Integer)arguments[3]).intValue());
 		}
 
+		if (_methodName41.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
+			return MonitorEventLocalServiceUtil.getEventsByTypeAndUserCount(((Integer)arguments[0]).intValue(),
+				((Long)arguments[1]).longValue());
+		}
+
 		if (_methodName42.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes42, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsByTypeAndUserIdCount(((Integer)arguments[0]).intValue(),
-				((Long)arguments[1]).longValue());
+			return MonitorEventLocalServiceUtil.getEventsByTypeCount(((Integer)arguments[0]).intValue());
 		}
 
 		throw new UnsupportedOperationException();
