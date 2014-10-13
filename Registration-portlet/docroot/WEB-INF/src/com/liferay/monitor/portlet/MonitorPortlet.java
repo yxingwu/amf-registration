@@ -43,7 +43,7 @@ public class MonitorPortlet extends Action {
 			ServiceContext serviceContext = ServiceContextFactory.getInstance(
 				request);
 
-			MonitorEventLocalServiceUtil.addMonitorEvent(
+			MonitorEventLocalServiceUtil.addEvent(
 				userId, ip, eventType, serviceContext);
 		}
 		catch (Exception e) {

@@ -121,7 +121,7 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 
 		// Monitor
 
-		MonitorEventLocalServiceUtil.addMonitorEvent(
+		MonitorEventLocalServiceUtil.addEvent(
 			user.getUserId(), "0.0.0.0", MonitorEventTypes.REGISTRATION,
 			serviceContext);
 	}

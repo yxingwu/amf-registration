@@ -41,7 +41,7 @@ import java.util.List;
 public class MonitorEventLocalServiceImpl
 	extends MonitorEventLocalServiceBaseImpl {
 
-	public MonitorEvent addMonitorEvent(
+	public MonitorEvent addEvent(
 			long userId, String ip, int eventType,
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
@@ -63,14 +63,17 @@ public class MonitorEventLocalServiceImpl
 		return monitorEvent;
 	}
 
-	public List<MonitorEvent> getMonitorEventsByType(
-			int eventType, int start, int end)
+	public List<MonitorEvent> getEventsByType(int eventType, int start, int end)
 		throws SystemException {
+
+		if (eventType == MonitorEventTypes.ALL) {
+			return monitorEventPersistence.findAll(start, end);
+		}
 
 		return monitorEventPersistence.findByeventType(eventType, start, end);
 	}
 
-	public List<MonitorEvent> getMonitorEventsByTypeAndUserId(
+	public List<MonitorEvent> getEventsByTypeAndUser(
 			int eventType, long userId, int start, int end)
 		throws SystemException {
 
@@ -81,7 +84,7 @@ public class MonitorEventLocalServiceImpl
 		return monitorEventPersistence.findByE_U(eventType, userId, start, end);
 	}
 
-	public int getMonitorEventsByTypeAndUserIdCount(int eventType, long userId)
+	public int getEventsByTypeAndUserCount(int eventType, long userId)
 		throws SystemException {
 
 		if (eventType == MonitorEventTypes.ALL) {
@@ -91,8 +94,10 @@ public class MonitorEventLocalServiceImpl
 		return monitorEventPersistence.countByE_U(eventType, userId);
 	}
 
-	public int getMonitorEventsByTypeCount(int eventType)
-		throws SystemException {
+	public int getEventsByTypeCount(int eventType) throws SystemException {
+		if (eventType == MonitorEventTypes.ALL) {
+			return monitorEventPersistence.countAll();
+		}
 
 		return monitorEventPersistence.countByeventType(eventType);
 	}
