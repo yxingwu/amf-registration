@@ -17,26 +17,6 @@
 <%@ include file="/init.jsp" %>
 
 <%
-boolean showPermissionsButton = MonitorEventPermission.contains(permissionChecker, scopeGroupId, ActionKeys.PERMISSIONS);
-%>
-
-<c:if test="<%= showPermissionsButton %>">
-	<liferay-security:permissionsURL
-		modelResource="com.liferay.monitor.model"
-		modelResourceDescription="<%= HtmlUtil.escape(themeDisplay.getScopeGroupName()) %>"
-		resourcePrimKey="<%= String.valueOf(scopeGroupId) %>"
-		var="permissionsURL"
-		windowState="<%= LiferayWindowState.POP_UP.toString() %>"
-	/>
-
-	<aui:nav-bar>
-		<aui:nav>
-			<aui:nav-item href="<%= permissionsURL %>" label="permissions" title="edit-permissions" useDialog="<%= true %>" />
-		</aui:nav>
-	</aui:nav-bar>
-</c:if>
-
-<%
 String tabs1 = ParamUtil.getString(request, "tabs1", "all");
 
 PortletURL portletURL = renderResponse.createRenderURL();
@@ -58,14 +38,72 @@ long userId = themeDisplay.getUserId();
 Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd HH:mm:ss", locale);
 %>
 
-<c:choose>
-	<c:when test='<%= tabs1.equals("all") %>'>
-		<%@ include file="/amf-event-monitor/view_all_events.jspf" %>
-	</c:when>
-	<c:when test='<%= tabs1.equals("registration") %>'>
-		<%@ include file="/amf-event-monitor/view_registration_events.jspf" %>
-	</c:when>
-	<c:otherwise>
-		<%@ include file="/amf-event-monitor/view_login_events.jspf" %>
-	</c:otherwise>
-</c:choose>
+<liferay-ui:search-container>
+
+	<%
+	String emptyResultsMessage = null;
+
+	if (tabs1.equals("all")) {
+		emptyResultsMessage = "there-are-no-registration-monitor-events";
+
+		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsCount() : MonitorEventLocalServiceUtil.getMonitorEventsCount(userId);
+	}
+	else if (tabs1.equals("registration")) {
+		emptyResultsMessage="there-are-no-registration-monitor-events";
+
+		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsCount(MonitorEventTypes.REGISTRATION) : MonitorEventLocalServiceUtil.getMonitorEventsCount(userId, MonitorEventTypes.REGISTRATION);
+	}
+	else {
+		emptyResultsMessage="there-are-no-login-monitor-events";
+
+		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsCount(MonitorEventTypes.LOGIN) : MonitorEventLocalServiceUtil.getMonitorEventsCount(userId, MonitorEventTypes.LOGIN);
+	}
+
+	searchContainer.setEmptyResultsMessage(emptyResultsMessage);
+	searchContainer.setTotal(total);
+	%>
+
+	<liferay-ui:search-container-results>
+
+		<%
+		if (tabs1.equals("all")) {
+			results = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEvents(searchContainer.getStart(), searchContainer.getEnd()) : MonitorEventLocalServiceUtil.getMonitorEventsByUserId(userId, searchContainer.getStart(), searchContainer.getEnd());
+		}
+		else if (tabs1.equals("registration")) {
+			results = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByType(MonitorEventTypes.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd()) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndType(userId, MonitorEventTypes.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd());
+		}
+		else {
+			results = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByType(MonitorEventTypes.LOGIN, searchContainer.getStart(), searchContainer.getEnd()) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndType(userId, MonitorEventTypes.LOGIN, searchContainer.getStart(), searchContainer.getEnd());
+		}
+
+		searchContainer.setResults(results);
+		%>
+
+	</liferay-ui:search-container-results>
+
+	<liferay-ui:search-container-row
+		className="com.liferay.monitor.model.MonitorEvent"
+		escapedModel="<%= true %>"
+		keyProperty="eventId"
+		modelVar="curEvent"
+	>
+
+		<liferay-ui:search-container-column-text
+			buffer="buffer"
+		>
+
+			<%
+			buffer.append(dateFormatDateTime.format(curEvent.getEventDate()) + StringPool.SPACE);
+			buffer.append(UserLocalServiceUtil.getUser(curEvent.getUserId()).getScreenName() + StringPool.SPACE);
+			buffer.append("(");
+			buffer.append(curEvent.getUserId());
+			buffer.append(") ");
+			buffer.append(curEvent.getIp() + StringPool.SPACE);
+			buffer.append((curEvent.getEventType() == MonitorEventTypes.LOGIN) ? LanguageUtil.get(pageContext, "login") : LanguageUtil.get(pageContext, "registration"));
+			%>
+
+		</liferay-ui:search-container-column-text>
+	</liferay-ui:search-container-row>
+
+	<liferay-ui:search-iterator />
+</liferay-ui:search-container>

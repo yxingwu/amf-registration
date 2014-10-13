@@ -10,12 +10,11 @@
 		<permissions>
 			<supports>
 				<action-key>VIEW</action-key>
-				<action-key>PERMISSIONS</action-key>
 			</supports>
 			<site-member-defaults />
 			<guest-defaults />
 			<guest-unsupported>
-				<action-key>PERMISSIONS</action-key>
+				<action-key>VIEW</action-key>
 			</guest-unsupported>
 		</permissions>
 	</model-resource>

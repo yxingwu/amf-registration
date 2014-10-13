@@ -19,10 +19,9 @@
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
-<%@ taglib uri="http://liferay.com/tld/security" prefix="liferay-security" %>
 
-<%@ page import="com.liferay.amfregistration.util.PortletPropsValues" %><%@
-page import="com.liferay.monitor.model.MonitorEvent" %><%@
+<%@ page import="com.liferay.amfregistration.util.CountryConstants" %><%@
+page import="com.liferay.amfregistration.util.PortletPropsValues" %><%@
 page import="com.liferay.monitor.service.MonitorEventLocalServiceUtil" %><%@
 page import="com.liferay.monitor.service.permission.MonitorEventPermission" %><%@
 page import="com.liferay.portal.AddressCityException" %><%@
@@ -42,17 +41,16 @@ page import="com.liferay.portal.TermsOfUseException" %><%@
 page import="com.liferay.portal.UserPasswordException" %><%@
 page import="com.liferay.portal.UserScreenNameException" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
-page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
 page import="com.liferay.portal.kernel.util.CalendarFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
-page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.StringPool" %><%@
 page import="com.liferay.portal.model.Contact" %><%@
 page import="com.liferay.portal.model.Country" %><%@
-page import="com.liferay.portal.model.CountryConstants" %><%@
+page import="com.liferay.portal.model.Region" %><%@
 page import="com.liferay.portal.security.permission.ActionKeys" %><%@
 page import="com.liferay.portal.service.CountryServiceUtil" %><%@
+page import="com.liferay.portal.service.RegionServiceUtil" %><%@
 page import="com.liferay.portal.service.UserLocalServiceUtil" %><%@
 page import="com.liferay.portal.util.PortalUtil" %><%@
 page import="com.liferay.registration.util.MonitorEventTypes" %>
