@@ -126,25 +126,17 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 
 		_methodParameterTypes20 = new String[] { "int", "int", "int" };
 
-		_methodName21 = "getMonitorEventsByUserId";
+		_methodName21 = "getMonitorEventsByTypeCount";
 
-		_methodParameterTypes21 = new String[] { "long", "int", "int" };
+		_methodParameterTypes21 = new String[] { "int" };
 
-		_methodName22 = "getMonitorEventsByUserIdAndType";
+		_methodName22 = "getMonitorEventsByTypeAndUserId";
 
-		_methodParameterTypes22 = new String[] { "long", "int", "int", "int" };
+		_methodParameterTypes22 = new String[] { "int", "long", "int", "int" };
 
-		_methodName23 = "getMonitorEventsByTypeCount";
+		_methodName23 = "getMonitorEventsByTypeAndUserIdCount";
 
-		_methodParameterTypes23 = new String[] { "int" };
-
-		_methodName24 = "getMonitorEventsByUserIdCount";
-
-		_methodParameterTypes24 = new String[] { "long" };
-
-		_methodName25 = "getMonitorEventsByUserIdAndTypeCount";
-
-		_methodParameterTypes25 = new String[] { "long", "int" };
+		_methodParameterTypes23 = new String[] { "int", "long" };
 	}
 
 	@Override
@@ -771,14 +763,13 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserId(
-		long userId, int start, int end)
+	public int getMonitorEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName21,
-					_methodParameterTypes21, new Object[] { userId, start, end });
+					_methodParameterTypes21, new Object[] { eventType });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -796,19 +787,19 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 			}
 		}
 
-		return (java.util.List<com.liferay.monitor.model.MonitorEvent>)ClpSerializer.translateOutput(returnObj);
+		return ((Integer)returnObj).intValue();
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserIdAndType(
-		long userId, int eventType, int start, int end)
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByTypeAndUserId(
+		int eventType, long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName22,
 					_methodParameterTypes22,
-					new Object[] { userId, eventType, start, end });
+					new Object[] { eventType, userId, start, end });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -830,69 +821,13 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public int getMonitorEventsByTypeCount(int eventType)
+	public int getMonitorEventsByTypeAndUserIdCount(int eventType, long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName23,
-					_methodParameterTypes23, new Object[] { eventType });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return ((Integer)returnObj).intValue();
-	}
-
-	@Override
-	public int getMonitorEventsByUserIdCount(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName24,
-					_methodParameterTypes24, new Object[] { userId });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return ((Integer)returnObj).intValue();
-	}
-
-	@Override
-	public int getMonitorEventsByUserIdAndTypeCount(long userId, int eventType)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName25,
-					_methodParameterTypes25, new Object[] { userId, eventType });
+					_methodParameterTypes23, new Object[] { eventType, userId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -960,8 +895,4 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	private String[] _methodParameterTypes22;
 	private String _methodName23;
 	private String[] _methodParameterTypes23;
-	private String _methodName24;
-	private String[] _methodParameterTypes24;
-	private String _methodName25;
-	private String[] _methodParameterTypes25;
 }

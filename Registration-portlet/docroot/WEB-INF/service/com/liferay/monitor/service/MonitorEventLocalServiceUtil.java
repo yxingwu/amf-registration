@@ -290,35 +290,23 @@ public class MonitorEventLocalServiceUtil {
 		return getService().getMonitorEventsByType(eventType, start, end);
 	}
 
-	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserId(
-		long userId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEventsByUserId(userId, start, end);
-	}
-
-	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserIdAndType(
-		long userId, int eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .getMonitorEventsByUserIdAndType(userId, eventType, start,
-			end);
-	}
-
 	public static int getMonitorEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().getMonitorEventsByTypeCount(eventType);
 	}
 
-	public static int getMonitorEventsByUserIdCount(long userId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEventsByUserIdCount(userId);
-	}
-
-	public static int getMonitorEventsByUserIdAndTypeCount(long userId,
-		int eventType)
+	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByTypeAndUserId(
+		int eventType, long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService()
-				   .getMonitorEventsByUserIdAndTypeCount(userId, eventType);
+				   .getMonitorEventsByTypeAndUserId(eventType, userId, start,
+			end);
+	}
+
+	public static int getMonitorEventsByTypeAndUserIdCount(int eventType,
+		long userId) throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getMonitorEventsByTypeAndUserIdCount(eventType, userId);
 	}
 
 	public static void clearService() {

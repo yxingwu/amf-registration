@@ -260,24 +260,15 @@ public interface MonitorEventLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserId(
-		long userId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserIdAndType(
-		long userId, int eventType, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getMonitorEventsByTypeCount(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getMonitorEventsByUserIdCount(long userId)
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByTypeAndUserId(
+		int eventType, long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getMonitorEventsByUserIdAndTypeCount(long userId, int eventType)
+	public int getMonitorEventsByTypeAndUserIdCount(int eventType, long userId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 }

@@ -1064,71 +1064,71 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	}
 
 	private static final String _FINDER_COLUMN_USERID_USERID_2 = "monitorEvent.userId = ?";
-	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_U_E = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_E_U = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, MonitorEventImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByU_E",
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByE_U",
 			new String[] {
-				Long.class.getName(), Integer.class.getName(),
+				Integer.class.getName(), Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			});
-	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_E = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_E_U = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, MonitorEventImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByU_E",
-			new String[] { Long.class.getName(), Integer.class.getName() },
-			MonitorEventModelImpl.USERID_COLUMN_BITMASK |
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByE_U",
+			new String[] { Integer.class.getName(), Long.class.getName() },
 			MonitorEventModelImpl.EVENTTYPE_COLUMN_BITMASK |
+			MonitorEventModelImpl.USERID_COLUMN_BITMASK |
 			MonitorEventModelImpl.EVENTDATE_COLUMN_BITMASK);
-	public static final FinderPath FINDER_PATH_COUNT_BY_U_E = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_COUNT_BY_E_U = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByU_E",
-			new String[] { Long.class.getName(), Integer.class.getName() });
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByE_U",
+			new String[] { Integer.class.getName(), Long.class.getName() });
 
 	/**
-	 * Returns all the monitor events where userId = &#63; and eventType = &#63;.
+	 * Returns all the monitor events where eventType = &#63; and userId = &#63;.
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @return the matching monitor events
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByU_E(long userId, int eventType)
+	public List<MonitorEvent> findByE_U(int eventType, long userId)
 		throws SystemException {
-		return findByU_E(userId, eventType, QueryUtil.ALL_POS,
+		return findByE_U(eventType, userId, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS, null);
 	}
 
 	/**
-	 * Returns a range of all the monitor events where userId = &#63; and eventType = &#63;.
+	 * Returns a range of all the monitor events where eventType = &#63; and userId = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.monitor.model.impl.MonitorEventModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @param start the lower bound of the range of monitor events
 	 * @param end the upper bound of the range of monitor events (not inclusive)
 	 * @return the range of matching monitor events
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByU_E(long userId, int eventType, int start,
+	public List<MonitorEvent> findByE_U(int eventType, long userId, int start,
 		int end) throws SystemException {
-		return findByU_E(userId, eventType, start, end, null);
+		return findByE_U(eventType, userId, start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the monitor events where userId = &#63; and eventType = &#63;.
+	 * Returns an ordered range of all the monitor events where eventType = &#63; and userId = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.liferay.monitor.model.impl.MonitorEventModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @param start the lower bound of the range of monitor events
 	 * @param end the upper bound of the range of monitor events (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -1136,7 +1136,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByU_E(long userId, int eventType, int start,
+	public List<MonitorEvent> findByE_U(int eventType, long userId, int start,
 		int end, OrderByComparator orderByComparator) throws SystemException {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -1145,13 +1145,13 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
 				(orderByComparator == null)) {
 			pagination = false;
-			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_E;
-			finderArgs = new Object[] { userId, eventType };
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_E_U;
+			finderArgs = new Object[] { eventType, userId };
 		}
 		else {
-			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_U_E;
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_E_U;
 			finderArgs = new Object[] {
-					userId, eventType,
+					eventType, userId,
 					
 					start, end, orderByComparator
 				};
@@ -1162,8 +1162,8 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 		if ((list != null) && !list.isEmpty()) {
 			for (MonitorEvent monitorEvent : list) {
-				if ((userId != monitorEvent.getUserId()) ||
-						(eventType != monitorEvent.getEventType())) {
+				if ((eventType != monitorEvent.getEventType()) ||
+						(userId != monitorEvent.getUserId())) {
 					list = null;
 
 					break;
@@ -1184,9 +1184,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 			query.append(_SQL_SELECT_MONITOREVENT_WHERE);
 
-			query.append(_FINDER_COLUMN_U_E_USERID_2);
+			query.append(_FINDER_COLUMN_E_U_EVENTTYPE_2);
 
-			query.append(_FINDER_COLUMN_U_E_EVENTTYPE_2);
+			query.append(_FINDER_COLUMN_E_U_USERID_2);
 
 			if (orderByComparator != null) {
 				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
@@ -1208,9 +1208,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				qPos.add(userId);
-
 				qPos.add(eventType);
+
+				qPos.add(userId);
 
 				if (!pagination) {
 					list = (List<MonitorEvent>)QueryUtil.list(q, getDialect(),
@@ -1243,20 +1243,20 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	}
 
 	/**
-	 * Returns the first monitor event in the ordered set where userId = &#63; and eventType = &#63;.
+	 * Returns the first monitor event in the ordered set where eventType = &#63; and userId = &#63;.
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching monitor event
 	 * @throws com.liferay.monitor.NoSuchMonitorEventException if a matching monitor event could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent findByU_E_First(long userId, int eventType,
+	public MonitorEvent findByE_U_First(int eventType, long userId,
 		OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
-		MonitorEvent monitorEvent = fetchByU_E_First(userId, eventType,
+		MonitorEvent monitorEvent = fetchByE_U_First(eventType, userId,
 				orderByComparator);
 
 		if (monitorEvent != null) {
@@ -1267,11 +1267,11 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-		msg.append("userId=");
-		msg.append(userId);
-
-		msg.append(", eventType=");
+		msg.append("eventType=");
 		msg.append(eventType);
+
+		msg.append(", userId=");
+		msg.append(userId);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -1279,18 +1279,18 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	}
 
 	/**
-	 * Returns the first monitor event in the ordered set where userId = &#63; and eventType = &#63;.
+	 * Returns the first monitor event in the ordered set where eventType = &#63; and userId = &#63;.
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent fetchByU_E_First(long userId, int eventType,
+	public MonitorEvent fetchByE_U_First(int eventType, long userId,
 		OrderByComparator orderByComparator) throws SystemException {
-		List<MonitorEvent> list = findByU_E(userId, eventType, 0, 1,
+		List<MonitorEvent> list = findByE_U(eventType, userId, 0, 1,
 				orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -1301,20 +1301,20 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	}
 
 	/**
-	 * Returns the last monitor event in the ordered set where userId = &#63; and eventType = &#63;.
+	 * Returns the last monitor event in the ordered set where eventType = &#63; and userId = &#63;.
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching monitor event
 	 * @throws com.liferay.monitor.NoSuchMonitorEventException if a matching monitor event could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent findByU_E_Last(long userId, int eventType,
+	public MonitorEvent findByE_U_Last(int eventType, long userId,
 		OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
-		MonitorEvent monitorEvent = fetchByU_E_Last(userId, eventType,
+		MonitorEvent monitorEvent = fetchByE_U_Last(eventType, userId,
 				orderByComparator);
 
 		if (monitorEvent != null) {
@@ -1325,11 +1325,11 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-		msg.append("userId=");
-		msg.append(userId);
-
-		msg.append(", eventType=");
+		msg.append("eventType=");
 		msg.append(eventType);
+
+		msg.append(", userId=");
+		msg.append(userId);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -1337,24 +1337,24 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	}
 
 	/**
-	 * Returns the last monitor event in the ordered set where userId = &#63; and eventType = &#63;.
+	 * Returns the last monitor event in the ordered set where eventType = &#63; and userId = &#63;.
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent fetchByU_E_Last(long userId, int eventType,
+	public MonitorEvent fetchByE_U_Last(int eventType, long userId,
 		OrderByComparator orderByComparator) throws SystemException {
-		int count = countByU_E(userId, eventType);
+		int count = countByE_U(eventType, userId);
 
 		if (count == 0) {
 			return null;
 		}
 
-		List<MonitorEvent> list = findByU_E(userId, eventType, count - 1,
+		List<MonitorEvent> list = findByE_U(eventType, userId, count - 1,
 				count, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -1365,19 +1365,19 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	}
 
 	/**
-	 * Returns the monitor events before and after the current monitor event in the ordered set where userId = &#63; and eventType = &#63;.
+	 * Returns the monitor events before and after the current monitor event in the ordered set where eventType = &#63; and userId = &#63;.
 	 *
 	 * @param eventId the primary key of the current monitor event
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next monitor event
 	 * @throws com.liferay.monitor.NoSuchMonitorEventException if a monitor event with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent[] findByU_E_PrevAndNext(long eventId, long userId,
-		int eventType, OrderByComparator orderByComparator)
+	public MonitorEvent[] findByE_U_PrevAndNext(long eventId, int eventType,
+		long userId, OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
 		MonitorEvent monitorEvent = findByPrimaryKey(eventId);
 
@@ -1388,13 +1388,13 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 			MonitorEvent[] array = new MonitorEventImpl[3];
 
-			array[0] = getByU_E_PrevAndNext(session, monitorEvent, userId,
-					eventType, orderByComparator, true);
+			array[0] = getByE_U_PrevAndNext(session, monitorEvent, eventType,
+					userId, orderByComparator, true);
 
 			array[1] = monitorEvent;
 
-			array[2] = getByU_E_PrevAndNext(session, monitorEvent, userId,
-					eventType, orderByComparator, false);
+			array[2] = getByE_U_PrevAndNext(session, monitorEvent, eventType,
+					userId, orderByComparator, false);
 
 			return array;
 		}
@@ -1406,8 +1406,8 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 		}
 	}
 
-	protected MonitorEvent getByU_E_PrevAndNext(Session session,
-		MonitorEvent monitorEvent, long userId, int eventType,
+	protected MonitorEvent getByE_U_PrevAndNext(Session session,
+		MonitorEvent monitorEvent, int eventType, long userId,
 		OrderByComparator orderByComparator, boolean previous) {
 		StringBundler query = null;
 
@@ -1421,9 +1421,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 		query.append(_SQL_SELECT_MONITOREVENT_WHERE);
 
-		query.append(_FINDER_COLUMN_U_E_USERID_2);
+		query.append(_FINDER_COLUMN_E_U_EVENTTYPE_2);
 
-		query.append(_FINDER_COLUMN_U_E_EVENTTYPE_2);
+		query.append(_FINDER_COLUMN_E_U_USERID_2);
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
@@ -1493,9 +1493,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 		QueryPos qPos = QueryPos.getInstance(q);
 
-		qPos.add(userId);
-
 		qPos.add(eventType);
+
+		qPos.add(userId);
 
 		if (orderByComparator != null) {
 			Object[] values = orderByComparator.getOrderByConditionValues(monitorEvent);
@@ -1516,34 +1516,34 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	}
 
 	/**
-	 * Removes all the monitor events where userId = &#63; and eventType = &#63; from the database.
+	 * Removes all the monitor events where eventType = &#63; and userId = &#63; from the database.
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void removeByU_E(long userId, int eventType)
+	public void removeByE_U(int eventType, long userId)
 		throws SystemException {
-		for (MonitorEvent monitorEvent : findByU_E(userId, eventType,
+		for (MonitorEvent monitorEvent : findByE_U(eventType, userId,
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(monitorEvent);
 		}
 	}
 
 	/**
-	 * Returns the number of monitor events where userId = &#63; and eventType = &#63;.
+	 * Returns the number of monitor events where eventType = &#63; and userId = &#63;.
 	 *
-	 * @param userId the user ID
 	 * @param eventType the event type
+	 * @param userId the user ID
 	 * @return the number of matching monitor events
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int countByU_E(long userId, int eventType) throws SystemException {
-		FinderPath finderPath = FINDER_PATH_COUNT_BY_U_E;
+	public int countByE_U(int eventType, long userId) throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_E_U;
 
-		Object[] finderArgs = new Object[] { userId, eventType };
+		Object[] finderArgs = new Object[] { eventType, userId };
 
 		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
 				this);
@@ -1553,9 +1553,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 			query.append(_SQL_COUNT_MONITOREVENT_WHERE);
 
-			query.append(_FINDER_COLUMN_U_E_USERID_2);
+			query.append(_FINDER_COLUMN_E_U_EVENTTYPE_2);
 
-			query.append(_FINDER_COLUMN_U_E_EVENTTYPE_2);
+			query.append(_FINDER_COLUMN_E_U_USERID_2);
 
 			String sql = query.toString();
 
@@ -1568,9 +1568,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				qPos.add(userId);
-
 				qPos.add(eventType);
+
+				qPos.add(userId);
 
 				count = (Long)q.uniqueResult();
 
@@ -1589,8 +1589,8 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 		return count.intValue();
 	}
 
-	private static final String _FINDER_COLUMN_U_E_USERID_2 = "monitorEvent.userId = ? AND ";
-	private static final String _FINDER_COLUMN_U_E_EVENTTYPE_2 = "monitorEvent.eventType = ?";
+	private static final String _FINDER_COLUMN_E_U_EVENTTYPE_2 = "monitorEvent.eventType = ? AND ";
+	private static final String _FINDER_COLUMN_E_U_USERID_2 = "monitorEvent.userId = ?";
 
 	public MonitorEventPersistenceImpl() {
 		setModelClass(MonitorEvent.class);
@@ -1854,23 +1854,23 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 			}
 
 			if ((monitorEventModelImpl.getColumnBitmask() &
-					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_E.getColumnBitmask()) != 0) {
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_E_U.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
-						monitorEventModelImpl.getOriginalUserId(),
-						monitorEventModelImpl.getOriginalEventType()
+						monitorEventModelImpl.getOriginalEventType(),
+						monitorEventModelImpl.getOriginalUserId()
 					};
 
-				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_U_E, args);
-				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_E,
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_E_U, args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_E_U,
 					args);
 
 				args = new Object[] {
-						monitorEventModelImpl.getUserId(),
-						monitorEventModelImpl.getEventType()
+						monitorEventModelImpl.getEventType(),
+						monitorEventModelImpl.getUserId()
 					};
 
-				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_U_E, args);
-				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_E,
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_E_U, args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_E_U,
 					args);
 			}
 		}
