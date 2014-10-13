@@ -19,6 +19,7 @@ import com.liferay.monitor.service.base.MonitorEventLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.service.ServiceContext;
+import com.liferay.registration.util.MonitorEventTypes;
 
 import java.util.Date;
 import java.util.List;
@@ -69,36 +70,31 @@ public class MonitorEventLocalServiceImpl
 		return monitorEventPersistence.findByeventType(eventType, start, end);
 	}
 
+	public List<MonitorEvent> getMonitorEventsByTypeAndUserId(
+			int eventType, long userId, int start, int end)
+		throws SystemException {
+
+		if (eventType == MonitorEventTypes.ALL) {
+			return monitorEventPersistence.findByuserId(userId, start, end);
+		}
+
+		return monitorEventPersistence.findByE_U(eventType, userId, start, end);
+	}
+
+	public int getMonitorEventsByTypeAndUserIdCount(int eventType, long userId)
+		throws SystemException {
+
+		if (eventType == MonitorEventTypes.ALL) {
+			return monitorEventPersistence.countByuserId(userId);
+		}
+
+		return monitorEventPersistence.countByE_U(eventType, userId);
+	}
+
 	public int getMonitorEventsByTypeCount(int eventType)
 		throws SystemException {
 
 		return monitorEventPersistence.countByeventType(eventType);
-	}
-
-	public List<MonitorEvent> getMonitorEventsByUserId(
-			long userId, int start, int end)
-		throws SystemException {
-
-		return monitorEventPersistence.findByuserId(userId, start, end);
-	}
-
-	public List<MonitorEvent> getMonitorEventsByUserIdAndType(
-			long userId, int eventType, int start, int end)
-		throws SystemException {
-
-		return monitorEventPersistence.findByU_E(userId, eventType, start, end);
-	}
-
-	public int getMonitorEventsByUserIdAndTypeCount(long userId, int eventType)
-		throws SystemException {
-
-		return monitorEventPersistence.countByU_E(userId, eventType);
-	}
-
-	public int getMonitorEventsByUserIdCount(long userId)
-		throws SystemException {
-
-		return monitorEventPersistence.countByuserId(userId);
 	}
 
 }

@@ -35,9 +35,9 @@
 		<finder name="userId" return-type="Collection">
 			<finder-column name="userId" />
 		</finder>
-		<finder name="U_E" return-type="Collection">
-			<finder-column name="userId" />
+		<finder name="E_U" return-type="Collection">
 			<finder-column name="eventType" />
+			<finder-column name="userId" />
 		</finder>
 	</entity>
 </service-builder>

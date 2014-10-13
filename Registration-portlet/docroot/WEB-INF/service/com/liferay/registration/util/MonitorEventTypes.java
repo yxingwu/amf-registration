@@ -16,6 +16,8 @@ package com.liferay.registration.util;
 
 public class MonitorEventTypes {
 
+	public static final int ALL = -1;
+
 	public static final int LOGIN = 0;
 
 	public static final int REGISTRATION = 1;
