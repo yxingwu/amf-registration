@@ -62,20 +62,21 @@ public class MonitorEventLocalServiceImpl
 		return monitorEvent;
 	}
 
-	public List<MonitorEvent> getMonitorEvents(
+	public List<MonitorEvent> getMonitorEventsByType(
 			int eventType, int start, int end)
 		throws SystemException {
 
 		return monitorEventPersistence.findByeventType(eventType, start, end);
 	}
 
-	public List<MonitorEvent> getMonitorEvents(long userId, int start, int end)
+	public List<MonitorEvent> getMonitorEventsByUserId(
+			long userId, int start, int end)
 		throws SystemException {
 
 		return monitorEventPersistence.findByuserId(userId, start, end);
 	}
 
-	public List<MonitorEvent> getMonitorEvents(
+	public List<MonitorEvent> getMonitorEventsByUserIdAndType(
 			long userId, int eventType, int start, int end)
 		throws SystemException {
 
