@@ -44,12 +44,12 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 	String emptyResultsMessage = null;
 
 	if (tabs1.equals("registration")) {
-		emptyResultsMessage="there-are-no-registration-monitor-events";
+		emptyResultsMessage = "there-are-no-registration-monitor-events";
 
 		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByTypeCount(MonitorEventTypes.REGISTRATION) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndTypeCount(userId, MonitorEventTypes.REGISTRATION);
 	}
 	else if (tabs1.equals("login")) {
-		emptyResultsMessage="there-are-no-login-monitor-events";
+		emptyResultsMessage = "there-are-no-login-monitor-events";
 
 		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByTypeCount(MonitorEventTypes.LOGIN) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndTypeCount(userId, MonitorEventTypes.LOGIN);
 
