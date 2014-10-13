@@ -69,6 +69,12 @@ public class MonitorEventLocalServiceImpl
 		return monitorEventPersistence.findByeventType(eventType, start, end);
 	}
 
+	public int getMonitorEventsByTypeCount(int eventType)
+		throws SystemException {
+
+		return monitorEventPersistence.countByeventType(eventType);
+	}
+
 	public List<MonitorEvent> getMonitorEventsByUserId(
 			long userId, int start, int end)
 		throws SystemException {
@@ -83,18 +89,16 @@ public class MonitorEventLocalServiceImpl
 		return monitorEventPersistence.findByU_E(userId, eventType, start, end);
 	}
 
-	public int getMonitorEventsCount(int eventType) throws SystemException {
-		return monitorEventPersistence.countByeventType(eventType);
-	}
-
-	public int getMonitorEventsCount(long userId) throws SystemException {
-		return monitorEventPersistence.countByuserId(userId);
-	}
-
-	public int getMonitorEventsCount(long userId, int eventType)
+	public int getMonitorEventsByUserIdAndTypeCount(long userId, int eventType)
 		throws SystemException {
 
 		return monitorEventPersistence.countByU_E(userId, eventType);
+	}
+
+	public int getMonitorEventsByUserIdCount(long userId)
+		throws SystemException {
+
+		return monitorEventPersistence.countByuserId(userId);
 	}
 
 }

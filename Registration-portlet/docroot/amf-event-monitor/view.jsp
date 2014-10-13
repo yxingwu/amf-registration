@@ -43,20 +43,21 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 	<%
 	String emptyResultsMessage = null;
 
-	if (tabs1.equals("all")) {
-		emptyResultsMessage = "there-are-no-registration-monitor-events";
-
-		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsCount() : MonitorEventLocalServiceUtil.getMonitorEventsCount(userId);
-	}
-	else if (tabs1.equals("registration")) {
+	if (tabs1.equals("registration")) {
 		emptyResultsMessage="there-are-no-registration-monitor-events";
 
-		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsCount(MonitorEventTypes.REGISTRATION) : MonitorEventLocalServiceUtil.getMonitorEventsCount(userId, MonitorEventTypes.REGISTRATION);
+		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByTypeCount(MonitorEventTypes.REGISTRATION) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndTypeCount(userId, MonitorEventTypes.REGISTRATION);
 	}
-	else {
+	else if (tabs1.equals("login")) {
 		emptyResultsMessage="there-are-no-login-monitor-events";
 
-		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsCount(MonitorEventTypes.LOGIN) : MonitorEventLocalServiceUtil.getMonitorEventsCount(userId, MonitorEventTypes.LOGIN);
+		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByTypeCount(MonitorEventTypes.LOGIN) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndTypeCount(userId, MonitorEventTypes.LOGIN);
+
+	}
+	else {
+		emptyResultsMessage = "there-are-no-registration-monitor-events";
+
+		total = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsCount() : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdCount(userId);
 	}
 
 	searchContainer.setEmptyResultsMessage(emptyResultsMessage);
@@ -66,14 +67,14 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 	<liferay-ui:search-container-results>
 
 		<%
-		if (tabs1.equals("all")) {
-			results = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEvents(searchContainer.getStart(), searchContainer.getEnd()) : MonitorEventLocalServiceUtil.getMonitorEventsByUserId(userId, searchContainer.getStart(), searchContainer.getEnd());
-		}
-		else if (tabs1.equals("registration")) {
+		if (tabs1.equals("registration")) {
 			results = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByType(MonitorEventTypes.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd()) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndType(userId, MonitorEventTypes.REGISTRATION, searchContainer.getStart(), searchContainer.getEnd());
 		}
-		else {
+		else if (tabs1.equals("login")) {
 			results = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEventsByType(MonitorEventTypes.LOGIN, searchContainer.getStart(), searchContainer.getEnd()) : MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndType(userId, MonitorEventTypes.LOGIN, searchContainer.getStart(), searchContainer.getEnd());
+		}
+		else {
+			results = hasViewPermission ? MonitorEventLocalServiceUtil.getMonitorEvents(searchContainer.getStart(), searchContainer.getEnd()) : MonitorEventLocalServiceUtil.getMonitorEventsByUserId(userId, searchContainer.getStart(), searchContainer.getEnd());
 		}
 
 		searchContainer.setResults(results);
