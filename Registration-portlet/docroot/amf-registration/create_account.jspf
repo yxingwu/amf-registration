@@ -135,12 +135,14 @@ birthday.set(Calendar.YEAR, 1970);
 			<aui:select label="state" name="state" required="<%= true %>">
 
 				<%
-				List<Country> countries = CountryServiceUtil.getCountries();
+				Country country = CountryServiceUtil.getCountryByName(CountryConstants.UNITED_STATES);
 
-				for (Country country : countries) {
+				List<Region> regions = RegionServiceUtil.getRegions(country.getCountryId());
+
+				for (Region region : regions) {
 				%>
 
-					<aui:option label="<%= CountryConstants.NAME_PREFIX + country.getName() %>" value="<%= country.getCountryId() %>" />
+					<aui:option label="<%= region.getName() %>" value="<%= region.getRegionId() %>" />
 
 				<%
 				}

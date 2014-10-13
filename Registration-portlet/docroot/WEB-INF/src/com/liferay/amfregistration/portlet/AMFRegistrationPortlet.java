@@ -14,6 +14,7 @@
 
 package com.liferay.amfregistration.portlet;
 
+import com.liferay.amfregistration.util.CountryConstants;
 import com.liferay.monitor.service.MonitorEventLocalServiceUtil;
 import com.liferay.portal.AddressCityException;
 import com.liferay.portal.AddressStreetException;
@@ -41,10 +42,12 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.Contact;
+import com.liferay.portal.model.Country;
 import com.liferay.portal.model.ListType;
 import com.liferay.portal.model.ListTypeConstants;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.AddressLocalServiceUtil;
+import com.liferay.portal.service.CountryServiceUtil;
 import com.liferay.portal.service.ListTypeServiceUtil;
 import com.liferay.portal.service.PhoneLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
@@ -141,10 +144,13 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 			}
 		}
 
+		Country country = CountryServiceUtil.getCountryByName(
+			CountryConstants.UNITED_STATES);
+
 		AddressLocalServiceUtil.addAddress(
 			user.getUserId(), Contact.class.getName(), user.getContactId(),
-			address1, address2, StringPool.BLANK, city, zip, 0, stateId, typeId,
-			false, false, new ServiceContext());
+			address1, address2, StringPool.BLANK, city, zip, stateId,
+			country.getCountryId(), typeId, false, false, new ServiceContext());
 	}
 
 	protected void addPhones(String homePhone, String mobilePhone, User user)
