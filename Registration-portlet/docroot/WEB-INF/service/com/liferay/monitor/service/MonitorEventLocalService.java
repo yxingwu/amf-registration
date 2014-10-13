@@ -255,17 +255,17 @@ public interface MonitorEventLocalService extends BaseLocalService,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserId(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserIdAndType(
 		long userId, int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 

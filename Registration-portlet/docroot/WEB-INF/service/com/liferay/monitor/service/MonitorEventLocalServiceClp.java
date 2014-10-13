@@ -122,15 +122,15 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName20 = "getMonitorEvents";
+		_methodName20 = "getMonitorEventsByType";
 
 		_methodParameterTypes20 = new String[] { "int", "int", "int" };
 
-		_methodName21 = "getMonitorEvents";
+		_methodName21 = "getMonitorEventsByUserId";
 
 		_methodParameterTypes21 = new String[] { "long", "int", "int" };
 
-		_methodName22 = "getMonitorEvents";
+		_methodName22 = "getMonitorEventsByUserIdAndType";
 
 		_methodParameterTypes22 = new String[] { "long", "int", "int", "int" };
 
@@ -741,7 +741,7 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -771,7 +771,7 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserId(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
@@ -800,7 +800,7 @@ public class MonitorEventLocalServiceClp implements MonitorEventLocalService {
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserIdAndType(
 		long userId, int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;

@@ -121,15 +121,15 @@ public class MonitorEventLocalServiceClpInvoker {
 				"com.liferay.portal.service.ServiceContext"
 			};
 
-		_methodName39 = "getMonitorEvents";
+		_methodName39 = "getMonitorEventsByType";
 
 		_methodParameterTypes39 = new String[] { "int", "int", "int" };
 
-		_methodName40 = "getMonitorEvents";
+		_methodName40 = "getMonitorEventsByUserId";
 
 		_methodParameterTypes40 = new String[] { "long", "int", "int" };
 
-		_methodName41 = "getMonitorEvents";
+		_methodName41 = "getMonitorEventsByUserIdAndType";
 
 		_methodParameterTypes41 = new String[] { "long", "int", "int", "int" };
 
@@ -257,21 +257,21 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		if (_methodName39.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes39, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEvents(((Integer)arguments[0]).intValue(),
+			return MonitorEventLocalServiceUtil.getMonitorEventsByType(((Integer)arguments[0]).intValue(),
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName40.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEvents(((Long)arguments[0]).longValue(),
+			return MonitorEventLocalServiceUtil.getMonitorEventsByUserId(((Long)arguments[0]).longValue(),
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName41.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEvents(((Long)arguments[0]).longValue(),
+			return MonitorEventLocalServiceUtil.getMonitorEventsByUserIdAndType(((Long)arguments[0]).longValue(),
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue(),
 				((Integer)arguments[3]).intValue());

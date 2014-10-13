@@ -297,25 +297,27 @@ public class MonitorEventLocalServiceWrapper implements MonitorEventLocalService
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _monitorEventLocalService.getMonitorEvents(eventType, start, end);
+		return _monitorEventLocalService.getMonitorEventsByType(eventType,
+			start, end);
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserId(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _monitorEventLocalService.getMonitorEvents(userId, start, end);
+		return _monitorEventLocalService.getMonitorEventsByUserId(userId,
+			start, end);
 	}
 
 	@Override
-	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserIdAndType(
 		long userId, int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _monitorEventLocalService.getMonitorEvents(userId, eventType,
-			start, end);
+		return _monitorEventLocalService.getMonitorEventsByUserIdAndType(userId,
+			eventType, start, end);
 	}
 
 	@Override

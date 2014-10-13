@@ -284,22 +284,24 @@ public class MonitorEventLocalServiceUtil {
 				   .addMonitorEvent(userId, ip, eventType, serviceContext);
 	}
 
-	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEvents(eventType, start, end);
+		return getService().getMonitorEventsByType(eventType, start, end);
 	}
 
-	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserId(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEvents(userId, start, end);
+		return getService().getMonitorEventsByUserId(userId, start, end);
 	}
 
-	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEvents(
+	public static java.util.List<com.liferay.monitor.model.MonitorEvent> getMonitorEventsByUserIdAndType(
 		long userId, int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMonitorEvents(userId, eventType, start, end);
+		return getService()
+				   .getMonitorEventsByUserIdAndType(userId, eventType, start,
+			end);
 	}
 
 	public static int getMonitorEventsCount(int eventType)
