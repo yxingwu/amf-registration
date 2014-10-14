@@ -7,18 +7,14 @@
 		<icon>/icon.png</icon>
 		<header-portlet-css>/amf-registration/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
-		<css-class-wrapper>Registration-portlet</css-class-wrapper>
+		<css-class-wrapper>registration-portlet</css-class-wrapper>
 	</portlet>
 	<portlet>
 		<portlet-name>amf-event-monitor</portlet-name>
 		<icon>/icon.png</icon>
 		<header-portlet-css>/amf-event-monitor/css/main.css</header-portlet-css>
-		<footer-portlet-javascript>
-			/js/main.js
-		</footer-portlet-javascript>
-		<css-class-wrapper>
-			amf-event-monitor -portlet
-		</css-class-wrapper>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<css-class-wrapper>event-monitor-portlet</css-class-wrapper>
 	</portlet>
 	<role-mapper>
 		<role-name>administrator</role-name>
