@@ -86,7 +86,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 	</liferay-ui:search-container-results>
 
 	<liferay-ui:search-container-row
-		className="com.liferay.monitor.model.MonitorEvent"
+		className="com.amf.registration.model.MonitorEvent"
 		escapedModel="<%= true %>"
 		keyProperty="eventId"
 		modelVar="curEvent"

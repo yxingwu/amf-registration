@@ -4,7 +4,7 @@
 	<portlet>
 		<portlet-name>amf-registration</portlet-name>
 		<display-name>AMF Registration</display-name>
-		<portlet-class>com.liferay.amfregistration.portlet.AMFRegistrationPortlet</portlet-class>
+		<portlet-class>com.amf.registration.registration.portlet.AMFRegistrationPortlet</portlet-class>
 		<init-param>
 			<name>copy-request-parameters</name>
 			<value>true</value>

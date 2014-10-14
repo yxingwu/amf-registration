@@ -3,7 +3,7 @@
 
 <resource-action-mapping>
 	<model-resource>
-		<model-name>com.liferay.monitor.model</model-name>
+		<model-name>com.amf.registration.model</model-name>
 		<portlet-ref>
 			<portlet-name>amf-event-monitor</portlet-name>
 		</portlet-ref>

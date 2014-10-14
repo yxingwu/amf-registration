@@ -20,11 +20,13 @@
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
-<%@ page import="com.liferay.amfregistration.util.CountryConstants" %><%@
-page import="com.liferay.amfregistration.util.PortletPropsValues" %><%@
-page import="com.liferay.monitor.service.MonitorEventLocalServiceUtil" %><%@
-page import="com.liferay.monitor.service.permission.MonitorEventPermission" %><%@
-page import="com.liferay.portal.AddressCityException" %><%@
+<%@ page import="com.amf.registration.service.MonitorEventLocalServiceUtil" %><%@
+page import="com.amf.registration.service.permission.MonitorEventPermission" %><%@
+page import="com.amf.registration.util.CountryConstants" %><%@
+page import="com.amf.registration.util.MonitorEventTypes" %><%@
+page import="com.amf.registration.util.PortletPropsValues" %>
+
+<%@ page import="com.liferay.portal.AddressCityException" %><%@
 page import="com.liferay.portal.AddressStreetException" %><%@
 page import="com.liferay.portal.AddressZipException" %><%@
 page import="com.liferay.portal.CompanyMaxUsersException" %><%@
@@ -52,8 +54,7 @@ page import="com.liferay.portal.security.permission.ActionKeys" %><%@
 page import="com.liferay.portal.service.CountryServiceUtil" %><%@
 page import="com.liferay.portal.service.RegionServiceUtil" %><%@
 page import="com.liferay.portal.service.UserLocalServiceUtil" %><%@
-page import="com.liferay.portal.util.PortalUtil" %><%@
-page import="com.liferay.registration.util.MonitorEventTypes" %>
+page import="com.liferay.portal.util.PortalUtil" %>
 
 <%@ page import="java.text.Format" %>
 
