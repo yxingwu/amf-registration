@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="com.liferay.monitor.service.MonitorEventLocalService" class="com.liferay.monitor.service.impl.MonitorEventLocalServiceImpl" />
-	<bean id="com.liferay.monitor.service.persistence.MonitorEventPersistence" class="com.liferay.monitor.service.persistence.MonitorEventPersistenceImpl" parent="basePersistence" />
+	<bean id="com.amf.registration.service.MonitorEventLocalService" class="com.amf.registration.service.impl.MonitorEventLocalServiceImpl" />
+	<bean id="com.amf.registration.service.persistence.MonitorEventPersistence" class="com.amf.registration.service.persistence.MonitorEventPersistenceImpl" parent="basePersistence" />
 </beans>

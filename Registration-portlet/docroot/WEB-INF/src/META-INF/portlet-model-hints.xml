@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <model-hints>
-	<model name="com.liferay.monitor.model.MonitorEvent">
+	<model name="com.amf.registration.model.MonitorEvent">
 		<field name="eventId" type="long" />
 		<field name="userId" type="long" />
 		<field name="ip" type="String" />

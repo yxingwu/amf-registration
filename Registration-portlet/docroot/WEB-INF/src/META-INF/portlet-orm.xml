@@ -7,7 +7,7 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="com.liferay.monitor.model.impl.MonitorEventModelImpl">
+	<mapped-superclass class="com.amf.registration.model.impl.MonitorEventModelImpl">
 		<attributes>
 			<id name="eventId" />
 			<basic name="userId" />
@@ -22,7 +22,7 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<entity class="com.liferay.monitor.model.impl.MonitorEventImpl" name="MonitorEvent">
+	<entity class="com.amf.registration.model.impl.MonitorEventImpl" name="MonitorEvent">
 		<table name="amf_MonitorEvent" />
 		<attributes />
 	</entity>
