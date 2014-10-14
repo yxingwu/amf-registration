@@ -14,6 +14,9 @@
 
 package com.liferay.amfregistration.util;
 
+/**
+ * @author Yuxing Wu
+ */
 public class PortletPropsKeys {
 
 	public static final String USERS_SECURITY_QUESTIONS =

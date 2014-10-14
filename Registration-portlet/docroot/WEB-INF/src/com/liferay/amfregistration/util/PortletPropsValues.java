@@ -15,6 +15,10 @@
 package com.liferay.amfregistration.util;
 
 import com.liferay.util.portlet.PortletProps;
+
+/**
+ * @author Yuxing Wu
+ */
 public class PortletPropsValues {
 
 	public static final String[] USERS_SECURITY_QUESTIONS =

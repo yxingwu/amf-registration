@@ -25,6 +25,10 @@ import com.liferay.registration.util.MonitorEventTypes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+/**
+ * @author Yuxing Wu
+ */
 public class MonitorPortlet extends Action {
 
 	@Override

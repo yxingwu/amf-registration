@@ -14,6 +14,9 @@
 
 package com.liferay.registration.util;
 
+/**
+ * @author Yuxing Wu
+ */
 public class MonitorEventTypes {
 
 	public static final int ALL = -1;

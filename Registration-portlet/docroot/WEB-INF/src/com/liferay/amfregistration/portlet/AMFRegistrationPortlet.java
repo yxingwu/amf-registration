@@ -62,6 +62,10 @@ import java.util.List;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+
+/**
+ * @author Yuxing Wu
+ */
 public class AMFRegistrationPortlet extends MVCPortlet {
 
 	public void addUser(

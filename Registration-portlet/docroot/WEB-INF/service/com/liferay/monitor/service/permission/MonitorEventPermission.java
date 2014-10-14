@@ -15,6 +15,10 @@
 package com.liferay.monitor.service.permission;
 
 import com.liferay.portal.security.permission.PermissionChecker;
+
+/**
+ * @author Yuxing Wu
+ */
 public class MonitorEventPermission {
 
 	public static final String RESOURCE_NAME = "com.liferay.monitor.model";

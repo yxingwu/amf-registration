@@ -14,6 +14,9 @@
 
 package com.liferay.amfregistration.util;
 
+/**
+ * @author Yuxing Wu
+ */
 public class CountryConstants {
 
 	public static final String UNITED_STATES = "united-states";
