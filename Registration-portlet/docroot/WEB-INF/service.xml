@@ -29,10 +29,10 @@
 
 		<!-- Finder methods -->
 
-		<finder name="eventType" return-type="Collection">
+		<finder name="EventType" return-type="Collection">
 			<finder-column name="eventType" />
 		</finder>
-		<finder name="userId" return-type="Collection">
+		<finder name="UserId" return-type="Collection">
 			<finder-column name="userId" />
 		</finder>
 		<finder name="E_U" return-type="Collection">
