@@ -85,7 +85,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_EVENTTYPE =
 		new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, MonitorEventImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByeventType",
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByEventType",
 			new String[] {
 				Integer.class.getName(),
 				
@@ -95,13 +95,13 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EVENTTYPE =
 		new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, MonitorEventImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByeventType",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByEventType",
 			new String[] { Integer.class.getName() },
 			MonitorEventModelImpl.EVENTTYPE_COLUMN_BITMASK |
 			MonitorEventModelImpl.EVENTDATE_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_EVENTTYPE = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByeventType",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByEventType",
 			new String[] { Integer.class.getName() });
 
 	/**
@@ -112,9 +112,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByeventType(int eventType)
+	public List<MonitorEvent> findByEventType(int eventType)
 		throws SystemException {
-		return findByeventType(eventType, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+		return findByEventType(eventType, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			null);
 	}
 
@@ -132,9 +132,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByeventType(int eventType, int start, int end)
+	public List<MonitorEvent> findByEventType(int eventType, int start, int end)
 		throws SystemException {
-		return findByeventType(eventType, start, end, null);
+		return findByEventType(eventType, start, end, null);
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByeventType(int eventType, int start,
+	public List<MonitorEvent> findByEventType(int eventType, int start,
 		int end, OrderByComparator orderByComparator) throws SystemException {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -259,10 +259,10 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent findByeventType_First(int eventType,
+	public MonitorEvent findByEventType_First(int eventType,
 		OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
-		MonitorEvent monitorEvent = fetchByeventType_First(eventType,
+		MonitorEvent monitorEvent = fetchByEventType_First(eventType,
 				orderByComparator);
 
 		if (monitorEvent != null) {
@@ -290,9 +290,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent fetchByeventType_First(int eventType,
+	public MonitorEvent fetchByEventType_First(int eventType,
 		OrderByComparator orderByComparator) throws SystemException {
-		List<MonitorEvent> list = findByeventType(eventType, 0, 1,
+		List<MonitorEvent> list = findByEventType(eventType, 0, 1,
 				orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -312,10 +312,10 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent findByeventType_Last(int eventType,
+	public MonitorEvent findByEventType_Last(int eventType,
 		OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
-		MonitorEvent monitorEvent = fetchByeventType_Last(eventType,
+		MonitorEvent monitorEvent = fetchByEventType_Last(eventType,
 				orderByComparator);
 
 		if (monitorEvent != null) {
@@ -343,15 +343,15 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent fetchByeventType_Last(int eventType,
+	public MonitorEvent fetchByEventType_Last(int eventType,
 		OrderByComparator orderByComparator) throws SystemException {
-		int count = countByeventType(eventType);
+		int count = countByEventType(eventType);
 
 		if (count == 0) {
 			return null;
 		}
 
-		List<MonitorEvent> list = findByeventType(eventType, count - 1, count,
+		List<MonitorEvent> list = findByEventType(eventType, count - 1, count,
 				orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -372,7 +372,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent[] findByeventType_PrevAndNext(long eventId,
+	public MonitorEvent[] findByEventType_PrevAndNext(long eventId,
 		int eventType, OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
 		MonitorEvent monitorEvent = findByPrimaryKey(eventId);
@@ -384,12 +384,12 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 			MonitorEvent[] array = new MonitorEventImpl[3];
 
-			array[0] = getByeventType_PrevAndNext(session, monitorEvent,
+			array[0] = getByEventType_PrevAndNext(session, monitorEvent,
 					eventType, orderByComparator, true);
 
 			array[1] = monitorEvent;
 
-			array[2] = getByeventType_PrevAndNext(session, monitorEvent,
+			array[2] = getByEventType_PrevAndNext(session, monitorEvent,
 					eventType, orderByComparator, false);
 
 			return array;
@@ -402,7 +402,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 		}
 	}
 
-	protected MonitorEvent getByeventType_PrevAndNext(Session session,
+	protected MonitorEvent getByEventType_PrevAndNext(Session session,
 		MonitorEvent monitorEvent, int eventType,
 		OrderByComparator orderByComparator, boolean previous) {
 		StringBundler query = null;
@@ -514,8 +514,8 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void removeByeventType(int eventType) throws SystemException {
-		for (MonitorEvent monitorEvent : findByeventType(eventType,
+	public void removeByEventType(int eventType) throws SystemException {
+		for (MonitorEvent monitorEvent : findByEventType(eventType,
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(monitorEvent);
 		}
@@ -529,7 +529,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int countByeventType(int eventType) throws SystemException {
+	public int countByEventType(int eventType) throws SystemException {
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_EVENTTYPE;
 
 		Object[] finderArgs = new Object[] { eventType };
@@ -577,7 +577,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	private static final String _FINDER_COLUMN_EVENTTYPE_EVENTTYPE_2 = "monitorEvent.eventType = ?";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_USERID = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, MonitorEventImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByuserId",
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByUserId",
 			new String[] {
 				Long.class.getName(),
 				
@@ -587,13 +587,13 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_USERID =
 		new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, MonitorEventImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByuserId",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByUserId",
 			new String[] { Long.class.getName() },
 			MonitorEventModelImpl.USERID_COLUMN_BITMASK |
 			MonitorEventModelImpl.EVENTDATE_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_USERID = new FinderPath(MonitorEventModelImpl.ENTITY_CACHE_ENABLED,
 			MonitorEventModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByuserId",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUserId",
 			new String[] { Long.class.getName() });
 
 	/**
@@ -604,9 +604,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByuserId(long userId)
+	public List<MonitorEvent> findByUserId(long userId)
 		throws SystemException {
-		return findByuserId(userId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+		return findByUserId(userId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
 
 	/**
@@ -623,9 +623,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByuserId(long userId, int start, int end)
+	public List<MonitorEvent> findByUserId(long userId, int start, int end)
 		throws SystemException {
-		return findByuserId(userId, start, end, null);
+		return findByUserId(userId, start, end, null);
 	}
 
 	/**
@@ -643,7 +643,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<MonitorEvent> findByuserId(long userId, int start, int end,
+	public List<MonitorEvent> findByUserId(long userId, int start, int end,
 		OrderByComparator orderByComparator) throws SystemException {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -750,10 +750,10 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent findByuserId_First(long userId,
+	public MonitorEvent findByUserId_First(long userId,
 		OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
-		MonitorEvent monitorEvent = fetchByuserId_First(userId,
+		MonitorEvent monitorEvent = fetchByUserId_First(userId,
 				orderByComparator);
 
 		if (monitorEvent != null) {
@@ -781,9 +781,9 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent fetchByuserId_First(long userId,
+	public MonitorEvent fetchByUserId_First(long userId,
 		OrderByComparator orderByComparator) throws SystemException {
-		List<MonitorEvent> list = findByuserId(userId, 0, 1, orderByComparator);
+		List<MonitorEvent> list = findByUserId(userId, 0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -802,10 +802,10 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent findByuserId_Last(long userId,
+	public MonitorEvent findByUserId_Last(long userId,
 		OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
-		MonitorEvent monitorEvent = fetchByuserId_Last(userId, orderByComparator);
+		MonitorEvent monitorEvent = fetchByUserId_Last(userId, orderByComparator);
 
 		if (monitorEvent != null) {
 			return monitorEvent;
@@ -832,15 +832,15 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent fetchByuserId_Last(long userId,
+	public MonitorEvent fetchByUserId_Last(long userId,
 		OrderByComparator orderByComparator) throws SystemException {
-		int count = countByuserId(userId);
+		int count = countByUserId(userId);
 
 		if (count == 0) {
 			return null;
 		}
 
-		List<MonitorEvent> list = findByuserId(userId, count - 1, count,
+		List<MonitorEvent> list = findByUserId(userId, count - 1, count,
 				orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -861,7 +861,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public MonitorEvent[] findByuserId_PrevAndNext(long eventId, long userId,
+	public MonitorEvent[] findByUserId_PrevAndNext(long eventId, long userId,
 		OrderByComparator orderByComparator)
 		throws NoSuchMonitorEventException, SystemException {
 		MonitorEvent monitorEvent = findByPrimaryKey(eventId);
@@ -873,12 +873,12 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 
 			MonitorEvent[] array = new MonitorEventImpl[3];
 
-			array[0] = getByuserId_PrevAndNext(session, monitorEvent, userId,
+			array[0] = getByUserId_PrevAndNext(session, monitorEvent, userId,
 					orderByComparator, true);
 
 			array[1] = monitorEvent;
 
-			array[2] = getByuserId_PrevAndNext(session, monitorEvent, userId,
+			array[2] = getByUserId_PrevAndNext(session, monitorEvent, userId,
 					orderByComparator, false);
 
 			return array;
@@ -891,7 +891,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 		}
 	}
 
-	protected MonitorEvent getByuserId_PrevAndNext(Session session,
+	protected MonitorEvent getByUserId_PrevAndNext(Session session,
 		MonitorEvent monitorEvent, long userId,
 		OrderByComparator orderByComparator, boolean previous) {
 		StringBundler query = null;
@@ -1003,8 +1003,8 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void removeByuserId(long userId) throws SystemException {
-		for (MonitorEvent monitorEvent : findByuserId(userId,
+	public void removeByUserId(long userId) throws SystemException {
+		for (MonitorEvent monitorEvent : findByUserId(userId,
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(monitorEvent);
 		}
@@ -1018,7 +1018,7 @@ public class MonitorEventPersistenceImpl extends BasePersistenceImpl<MonitorEven
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int countByuserId(long userId) throws SystemException {
+	public int countByUserId(long userId) throws SystemException {
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_USERID;
 
 		Object[] finderArgs = new Object[] { userId };

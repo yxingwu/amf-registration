@@ -44,7 +44,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<com.amf.registration.model.MonitorEvent> findByeventType(
+	public java.util.List<com.amf.registration.model.MonitorEvent> findByEventType(
 		int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -61,7 +61,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<com.amf.registration.model.MonitorEvent> findByeventType(
+	public java.util.List<com.amf.registration.model.MonitorEvent> findByEventType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -79,7 +79,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the ordered range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<com.amf.registration.model.MonitorEvent> findByeventType(
+	public java.util.List<com.amf.registration.model.MonitorEvent> findByEventType(
 		int eventType, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -93,7 +93,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent findByeventType_First(
+	public com.amf.registration.model.MonitorEvent findByEventType_First(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
@@ -107,7 +107,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the first matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent fetchByeventType_First(
+	public com.amf.registration.model.MonitorEvent fetchByEventType_First(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -121,7 +121,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent findByeventType_Last(
+	public com.amf.registration.model.MonitorEvent findByEventType_Last(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
@@ -135,7 +135,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the last matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent fetchByeventType_Last(
+	public com.amf.registration.model.MonitorEvent fetchByEventType_Last(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -150,7 +150,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a monitor event with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent[] findByeventType_PrevAndNext(
+	public com.amf.registration.model.MonitorEvent[] findByEventType_PrevAndNext(
 		long eventId, int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
@@ -162,7 +162,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @param eventType the event type
 	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByeventType(int eventType)
+	public void removeByEventType(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -172,7 +172,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the number of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public int countByeventType(int eventType)
+	public int countByEventType(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -182,7 +182,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<com.amf.registration.model.MonitorEvent> findByuserId(
+	public java.util.List<com.amf.registration.model.MonitorEvent> findByUserId(
 		long userId) throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -198,7 +198,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<com.amf.registration.model.MonitorEvent> findByuserId(
+	public java.util.List<com.amf.registration.model.MonitorEvent> findByUserId(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -216,7 +216,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the ordered range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<com.amf.registration.model.MonitorEvent> findByuserId(
+	public java.util.List<com.amf.registration.model.MonitorEvent> findByUserId(
 		long userId, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -230,7 +230,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent findByuserId_First(
+	public com.amf.registration.model.MonitorEvent findByUserId_First(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
@@ -244,7 +244,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the first matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent fetchByuserId_First(
+	public com.amf.registration.model.MonitorEvent fetchByUserId_First(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -258,7 +258,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent findByuserId_Last(
+	public com.amf.registration.model.MonitorEvent findByUserId_Last(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
@@ -272,7 +272,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the last matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent fetchByuserId_Last(
+	public com.amf.registration.model.MonitorEvent fetchByUserId_Last(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -287,7 +287,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a monitor event with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.amf.registration.model.MonitorEvent[] findByuserId_PrevAndNext(
+	public com.amf.registration.model.MonitorEvent[] findByUserId_PrevAndNext(
 		long eventId, long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
@@ -299,7 +299,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @param userId the user ID
 	* @throws SystemException if a system exception occurred
 	*/
-	public void removeByuserId(long userId)
+	public void removeByUserId(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -309,7 +309,7 @@ public interface MonitorEventPersistence extends BasePersistence<MonitorEvent> {
 	* @return the number of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public int countByuserId(long userId)
+	public int countByUserId(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

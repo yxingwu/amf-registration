@@ -117,10 +117,10 @@ public class MonitorEventUtil {
 	* @return the matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<com.amf.registration.model.MonitorEvent> findByeventType(
+	public static java.util.List<com.amf.registration.model.MonitorEvent> findByEventType(
 		int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByeventType(eventType);
+		return getPersistence().findByEventType(eventType);
 	}
 
 	/**
@@ -136,10 +136,10 @@ public class MonitorEventUtil {
 	* @return the range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<com.amf.registration.model.MonitorEvent> findByeventType(
+	public static java.util.List<com.amf.registration.model.MonitorEvent> findByEventType(
 		int eventType, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByeventType(eventType, start, end);
+		return getPersistence().findByEventType(eventType, start, end);
 	}
 
 	/**
@@ -156,12 +156,12 @@ public class MonitorEventUtil {
 	* @return the ordered range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<com.amf.registration.model.MonitorEvent> findByeventType(
+	public static java.util.List<com.amf.registration.model.MonitorEvent> findByEventType(
 		int eventType, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .findByeventType(eventType, start, end, orderByComparator);
+				   .findByEventType(eventType, start, end, orderByComparator);
 	}
 
 	/**
@@ -173,13 +173,13 @@ public class MonitorEventUtil {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent findByeventType_First(
+	public static com.amf.registration.model.MonitorEvent findByEventType_First(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .findByeventType_First(eventType, orderByComparator);
+				   .findByEventType_First(eventType, orderByComparator);
 	}
 
 	/**
@@ -190,12 +190,12 @@ public class MonitorEventUtil {
 	* @return the first matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent fetchByeventType_First(
+	public static com.amf.registration.model.MonitorEvent fetchByEventType_First(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .fetchByeventType_First(eventType, orderByComparator);
+				   .fetchByEventType_First(eventType, orderByComparator);
 	}
 
 	/**
@@ -207,13 +207,13 @@ public class MonitorEventUtil {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent findByeventType_Last(
+	public static com.amf.registration.model.MonitorEvent findByEventType_Last(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .findByeventType_Last(eventType, orderByComparator);
+				   .findByEventType_Last(eventType, orderByComparator);
 	}
 
 	/**
@@ -224,12 +224,12 @@ public class MonitorEventUtil {
 	* @return the last matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent fetchByeventType_Last(
+	public static com.amf.registration.model.MonitorEvent fetchByEventType_Last(
 		int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .fetchByeventType_Last(eventType, orderByComparator);
+				   .fetchByEventType_Last(eventType, orderByComparator);
 	}
 
 	/**
@@ -242,13 +242,13 @@ public class MonitorEventUtil {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a monitor event with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent[] findByeventType_PrevAndNext(
+	public static com.amf.registration.model.MonitorEvent[] findByEventType_PrevAndNext(
 		long eventId, int eventType,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .findByeventType_PrevAndNext(eventId, eventType,
+				   .findByEventType_PrevAndNext(eventId, eventType,
 			orderByComparator);
 	}
 
@@ -258,9 +258,9 @@ public class MonitorEventUtil {
 	* @param eventType the event type
 	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByeventType(int eventType)
+	public static void removeByEventType(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getPersistence().removeByeventType(eventType);
+		getPersistence().removeByEventType(eventType);
 	}
 
 	/**
@@ -270,9 +270,9 @@ public class MonitorEventUtil {
 	* @return the number of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByeventType(int eventType)
+	public static int countByEventType(int eventType)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().countByeventType(eventType);
+		return getPersistence().countByEventType(eventType);
 	}
 
 	/**
@@ -282,9 +282,9 @@ public class MonitorEventUtil {
 	* @return the matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<com.amf.registration.model.MonitorEvent> findByuserId(
+	public static java.util.List<com.amf.registration.model.MonitorEvent> findByUserId(
 		long userId) throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByuserId(userId);
+		return getPersistence().findByUserId(userId);
 	}
 
 	/**
@@ -300,10 +300,10 @@ public class MonitorEventUtil {
 	* @return the range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<com.amf.registration.model.MonitorEvent> findByuserId(
+	public static java.util.List<com.amf.registration.model.MonitorEvent> findByUserId(
 		long userId, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByuserId(userId, start, end);
+		return getPersistence().findByUserId(userId, start, end);
 	}
 
 	/**
@@ -320,12 +320,12 @@ public class MonitorEventUtil {
 	* @return the ordered range of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<com.amf.registration.model.MonitorEvent> findByuserId(
+	public static java.util.List<com.amf.registration.model.MonitorEvent> findByUserId(
 		long userId, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .findByuserId(userId, start, end, orderByComparator);
+				   .findByUserId(userId, start, end, orderByComparator);
 	}
 
 	/**
@@ -337,12 +337,12 @@ public class MonitorEventUtil {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent findByuserId_First(
+	public static com.amf.registration.model.MonitorEvent findByUserId_First(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByuserId_First(userId, orderByComparator);
+		return getPersistence().findByUserId_First(userId, orderByComparator);
 	}
 
 	/**
@@ -353,11 +353,11 @@ public class MonitorEventUtil {
 	* @return the first matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent fetchByuserId_First(
+	public static com.amf.registration.model.MonitorEvent fetchByUserId_First(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByuserId_First(userId, orderByComparator);
+		return getPersistence().fetchByUserId_First(userId, orderByComparator);
 	}
 
 	/**
@@ -369,12 +369,12 @@ public class MonitorEventUtil {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent findByuserId_Last(
+	public static com.amf.registration.model.MonitorEvent findByUserId_Last(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByuserId_Last(userId, orderByComparator);
+		return getPersistence().findByUserId_Last(userId, orderByComparator);
 	}
 
 	/**
@@ -385,11 +385,11 @@ public class MonitorEventUtil {
 	* @return the last matching monitor event, or <code>null</code> if a matching monitor event could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent fetchByuserId_Last(
+	public static com.amf.registration.model.MonitorEvent fetchByUserId_Last(
 		long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByuserId_Last(userId, orderByComparator);
+		return getPersistence().fetchByUserId_Last(userId, orderByComparator);
 	}
 
 	/**
@@ -402,13 +402,13 @@ public class MonitorEventUtil {
 	* @throws com.amf.registration.NoSuchMonitorEventException if a monitor event with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.amf.registration.model.MonitorEvent[] findByuserId_PrevAndNext(
+	public static com.amf.registration.model.MonitorEvent[] findByUserId_PrevAndNext(
 		long eventId, long userId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.amf.registration.NoSuchMonitorEventException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return getPersistence()
-				   .findByuserId_PrevAndNext(eventId, userId, orderByComparator);
+				   .findByUserId_PrevAndNext(eventId, userId, orderByComparator);
 	}
 
 	/**
@@ -417,9 +417,9 @@ public class MonitorEventUtil {
 	* @param userId the user ID
 	* @throws SystemException if a system exception occurred
 	*/
-	public static void removeByuserId(long userId)
+	public static void removeByUserId(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getPersistence().removeByuserId(userId);
+		getPersistence().removeByUserId(userId);
 	}
 
 	/**
@@ -429,9 +429,9 @@ public class MonitorEventUtil {
 	* @return the number of matching monitor events
 	* @throws SystemException if a system exception occurred
 	*/
-	public static int countByuserId(long userId)
+	public static int countByUserId(long userId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().countByuserId(userId);
+		return getPersistence().countByUserId(userId);
 	}
 
 	/**
