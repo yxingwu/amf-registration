@@ -5,5 +5,7 @@
 	<category name="category.sample">
 		<portlet id="amf-registration" />
 		<portlet id="amf-event-monitor" />
+		<portlet id="amf-search"></portlet>
+		<portlet id="amf-search-display"></portlet>
 	</category>
 </display>

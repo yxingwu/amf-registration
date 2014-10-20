@@ -76,4 +76,90 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	<portlet>
+		<portlet-name>amf-search</portlet-name>
+		<display-name>AMF Search</display-name>
+		<portlet-class>com.amf.registration.search.portlet.SearchPortlet</portlet-class>
+		<init-param>
+			<name>copy-request-parameters</name>
+			<value>true</value>
+		</init-param>
+		<init-param>
+			<name>template-path</name>
+			<value>/amf-search/</value>
+		</init-param>
+		<init-param>
+			<name>view-template</name>
+			<value>/amf-search/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+		<portlet-info>
+			<title>AMF Search</title>
+			<short-title>AMF Search</short-title>
+			<keywords>AMF Search</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+		<supported-publishing-event>
+			<qname xmlns:x="http://amf.com/events">x:amf.search</qname>
+		</supported-publishing-event>
+	</portlet>
+	<portlet>
+		<portlet-name>amf-search-display</portlet-name>
+		<display-name>AMF Search Display</display-name>
+		<portlet-class>com.amf.registration.display.portlet.SearchDisplayPortlet</portlet-class>
+		<init-param>
+			<name>template-path</name>
+			<value>/amf-search-display/</value>
+		</init-param>
+		<init-param>
+			<name>view-template</name>
+			<value>/amf-search-display/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<resource-bundle>content.Language</resource-bundle>
+		<portlet-info>
+			<title>AMF Search Display</title>
+			<short-title>AMF Search Display</short-title>
+			<keywords>AMF Search Display</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+		<supported-processing-event>
+			<qname xmlns:x="http://amf.com/events">x:amf.search</qname>
+		</supported-processing-event>
+	</portlet>
+	<event-definition>
+		<qname xmlns:x="http://amf.com/events">x:amf.search</qname>
+		<value-type>java.lang.String</value-type>
+	</event-definition>
 </portlet-app>
