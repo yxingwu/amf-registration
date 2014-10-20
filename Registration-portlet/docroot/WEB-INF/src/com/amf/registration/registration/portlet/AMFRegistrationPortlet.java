@@ -155,7 +155,7 @@ public class AMFRegistrationPortlet extends MVCPortlet {
 		AddressLocalServiceUtil.addAddress(
 			user.getUserId(), Contact.class.getName(), user.getContactId(),
 			address1, address2, StringPool.BLANK, city, zip, stateId,
-			country.getCountryId(), typeId, false, false, new ServiceContext());
+			country.getCountryId(), typeId, false, true, new ServiceContext());
 	}
 
 	protected void addPhones(String homePhone, String mobilePhone, User user)
