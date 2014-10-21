@@ -97,12 +97,16 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getSimpleDateFormat("yyyy-
 		>
 
 			<%
-			buffer.append(dateFormatDateTime.format(curEvent.getEventDate()) + StringPool.SPACE);
-			buffer.append(UserLocalServiceUtil.getUser(curEvent.getUserId()).getScreenName() + StringPool.SPACE);
-			buffer.append("(");
+			buffer.append(dateFormatDateTime.format(curEvent.getEventDate()));
+			buffer.append(StringPool.SPACE);
+			buffer.append(UserLocalServiceUtil.getUser(curEvent.getUserId()).getScreenName());
+			buffer.append(StringPool.SPACE);
+			buffer.append(StringPool.OPEN_PARENTHESIS);
 			buffer.append(curEvent.getUserId());
-			buffer.append(") ");
-			buffer.append(curEvent.getIp() + StringPool.SPACE);
+			buffer.append(StringPool.CLOSE_PARENTHESIS);
+			buffer.append(StringPool.SPACE);
+			buffer.append(curEvent.getIp());
+			buffer.append(StringPool.SPACE);
 			buffer.append((curEvent.getEventType() == MonitorEventTypes.LOGIN) ? LanguageUtil.get(pageContext, "login") : LanguageUtil.get(pageContext, "registration"));
 			%>
 

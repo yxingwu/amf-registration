@@ -17,7 +17,7 @@
 <%@ include file="/init.jsp" %>
 
 <portlet:actionURL name="search" var="searchURL">
-	<portlet:param name="mvcPath" value='<%= "/amf-search/view.jsp" %>' />
+	<portlet:param name="mvcPath" value="/amf-search/view.jsp" />
 </portlet:actionURL>
 
 <aui:form action="<%= searchURL %>" method="post" name="fm">
