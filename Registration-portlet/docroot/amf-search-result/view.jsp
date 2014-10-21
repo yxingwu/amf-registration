@@ -29,7 +29,7 @@ String zip = ParamUtil.getString(request, "zip");
 		<%
 		PortletURL portletURL = renderResponse.createRenderURL();
 
-		portletURL.setParameter("mvcPath", "/amf-search-show/view.jsp");
+		portletURL.setParameter("mvcPath", "/amf-search-result/view.jsp");
 		portletURL.setParameter("zip", zip);
 		%>
 

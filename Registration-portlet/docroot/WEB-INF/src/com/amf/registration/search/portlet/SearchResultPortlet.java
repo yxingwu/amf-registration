@@ -24,7 +24,7 @@ import javax.portlet.ProcessEvent;
 /**
  * @author Yuxing Wu
  */
-public class SearchShowPortlet extends MVCPortlet {
+public class SearchResultPortlet extends MVCPortlet {
 
 	@ProcessEvent(qname="{http://amf.com/events}amf.search")
 	public void getZip(EventRequest eventRequest, EventResponse eventResponse) {
