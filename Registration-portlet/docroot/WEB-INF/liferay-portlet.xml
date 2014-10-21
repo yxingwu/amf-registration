@@ -24,11 +24,11 @@
 		<css-class-wrapper>search-portlet</css-class-wrapper>
 	</portlet>
 	<portlet>
-		<portlet-name>amf-search-display</portlet-name>
+		<portlet-name>amf-search-show</portlet-name>
 		<icon>/icon.png</icon>
-		<header-portlet-css>/amf-search-display/css/main.css</header-portlet-css>
+		<header-portlet-css>/amf-search-show/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
-		<css-class-wrapper>search-display-portlet</css-class-wrapper>
+		<css-class-wrapper>search-show-portlet</css-class-wrapper>
 	</portlet>
 	<role-mapper>
 		<role-name>administrator</role-name>

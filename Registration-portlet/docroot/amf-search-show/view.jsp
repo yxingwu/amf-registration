@@ -29,7 +29,7 @@ String zip = ParamUtil.getString(request, "zip");
 		<%
 		PortletURL portletURL = renderResponse.createRenderURL();
 
-		portletURL.setParameter("mvcPath", "/amf-search-display/view.jsp");
+		portletURL.setParameter("mvcPath", "/amf-search-show/view.jsp");
 		portletURL.setParameter("zip", zip);
 		%>
 
@@ -88,12 +88,18 @@ String zip = ParamUtil.getString(request, "zip");
 				>
 
 				<%
-				buffer.append(curUser.getFirstName() + StringPool.SPACE);
-				buffer.append(StringUtil.toUpperCase(curUser.getLastName().substring(0, 1)) + StringPool.PERIOD + StringPool.SPACE);
-				buffer.append("(");
+				buffer.append(curUser.getFirstName());
+				buffer.append(StringPool.SPACE);
+				buffer.append(StringUtil.toUpperCase(curUser.getLastName().substring(0, 1)));
+				buffer.append(StringPool.PERIOD);
+				buffer.append(StringPool.SPACE);
+				buffer.append(StringPool.OPEN_PARENTHESIS);
 				buffer.append(curUser.getScreenName());
-				buffer.append(") ");
-				buffer.append(StringPool.DASH + StringPool.SPACE + curUser.getEmailAddress());
+				buffer.append(StringPool.CLOSE_PARENTHESIS);
+				buffer.append(StringPool.SPACE);
+				buffer.append(StringPool.DASH);
+				buffer.append(StringPool.SPACE);
+				buffer.append(curUser.getEmailAddress());
 				%>
 
 				</liferay-ui:search-container-column-text>

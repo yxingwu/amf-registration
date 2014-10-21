@@ -120,16 +120,16 @@
 		</supported-publishing-event>
 	</portlet>
 	<portlet>
-		<portlet-name>amf-search-display</portlet-name>
-		<display-name>AMF Search Display</display-name>
-		<portlet-class>com.amf.registration.display.portlet.SearchDisplayPortlet</portlet-class>
+		<portlet-name>amf-search-show</portlet-name>
+		<display-name>AMF Search Show</display-name>
+		<portlet-class>com.amf.registration.search.portlet.SearchShowPortlet</portlet-class>
 		<init-param>
 			<name>template-path</name>
-			<value>/amf-search-display/</value>
+			<value>/amf-search-show/</value>
 		</init-param>
 		<init-param>
 			<name>view-template</name>
-			<value>/amf-search-display/view.jsp</value>
+			<value>/amf-search-show/view.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
@@ -138,9 +138,9 @@
 		</supports>
 		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
-			<title>AMF Search Display</title>
-			<short-title>AMF Search Display</short-title>
-			<keywords>AMF Search Display</keywords>
+			<title>AMF Search Show</title>
+			<short-title>AMF Search Show</short-title>
+			<keywords>AMF Search Show</keywords>
 		</portlet-info>
 		<security-role-ref>
 			<role-name>administrator</role-name>

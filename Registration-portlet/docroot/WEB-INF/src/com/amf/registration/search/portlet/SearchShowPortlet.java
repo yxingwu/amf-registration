@@ -12,7 +12,7 @@
  *
  */
 
-package com.amf.registration.display.portlet;
+package com.amf.registration.search.portlet;
 
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
@@ -24,7 +24,7 @@ import javax.portlet.ProcessEvent;
 /**
  * @author Yuxing Wu
  */
-public class SearchDisplayPortlet extends MVCPortlet {
+public class SearchShowPortlet extends MVCPortlet {
 
 	@ProcessEvent(qname="{http://amf.com/events}amf.search")
 	public void getZip(EventRequest eventRequest, EventResponse eventResponse) {
