@@ -62,6 +62,7 @@ page import="com.liferay.portal.model.Region" %><%@
 page import="com.liferay.portal.model.User" %><%@
 page import="com.liferay.portal.security.permission.ActionKeys" %><%@
 page import="com.liferay.portal.service.AddressLocalServiceUtil" %><%@
+page import="com.liferay.portal.service.ContactLocalServiceUtil" %><%@
 page import="com.liferay.portal.service.CountryServiceUtil" %><%@
 page import="com.liferay.portal.service.RegionServiceUtil" %><%@
 page import="com.liferay.portal.service.UserLocalServiceUtil" %><%@

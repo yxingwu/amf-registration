@@ -1,0 +1,25 @@
+.event-monitor-portlet {
+	.lfr-search-container {
+		margin-top: 0;
+
+		.table-bordered {
+			border-style: none;
+
+			.table-columns {
+				th {
+					display: none;
+				}
+			}
+
+			.table-data {
+				.table-cell {
+					border: none;
+				}
+
+				td {
+					background-color: transparent;
+				}
+			}
+		}
+	}
+}

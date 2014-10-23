@@ -25,6 +25,8 @@ String zip = ParamUtil.getString(request, "zip");
 		<liferay-ui:message key="there-are-no-search-results-to-display" />
 	</c:when>
 	<c:otherwise>
+		<h4><%= LanguageUtil.format(pageContext, "search-results-for-x", HtmlUtil.escape(zip)) %></h4>
+		<hr />
 
 		<%
 		PortletURL portletURL = renderResponse.createRenderURL();
@@ -40,11 +42,9 @@ String zip = ParamUtil.getString(request, "zip");
 		>
 
 			<%
-			DynamicQuery userDynamicQuery = DynamicQueryFactoryUtil.forClass(User.class);
-
 			DynamicQuery addressDynamicQuery = DynamicQueryFactoryUtil.forClass(Address.class);
 
-			addressDynamicQuery.setProjection(ProjectionFactoryUtil.distinct(ProjectionFactoryUtil.property("userId")));
+			addressDynamicQuery.setProjection(ProjectionFactoryUtil.distinct(ProjectionFactoryUtil.property("classPK")));
 
 			Property zipProperty = PropertyFactoryUtil.forName("zip");
 
@@ -54,9 +54,25 @@ String zip = ParamUtil.getString(request, "zip");
 
 			addressDynamicQuery.add(primaryProperty.eq(true));
 
-			List userIds = AddressLocalServiceUtil.dynamicQuery(addressDynamicQuery);
+			List contactIds = AddressLocalServiceUtil.dynamicQuery(addressDynamicQuery);
 
-			searchContainer.setTotal(userIds.size());
+			List userIds = null;
+
+			if (contactIds.size() > 0) {
+				DynamicQuery contactDynamicQuery = DynamicQueryFactoryUtil.forClass(Contact.class);
+
+				contactDynamicQuery.setProjection(ProjectionFactoryUtil.property("classPK"));
+
+				Property contactIdProperty = PropertyFactoryUtil.forName("contactId");
+
+				contactDynamicQuery.add(contactIdProperty.in(contactIds));
+
+				userIds = ContactLocalServiceUtil.dynamicQuery(contactDynamicQuery);
+			}
+
+			searchContainer.setTotal(contactIds.size());
+
+			DynamicQuery userDynamicQuery = DynamicQueryFactoryUtil.forClass(User.class);
 
 			Property userIdProperty = PropertyFactoryUtil.forName("userId");
 			%>
@@ -64,7 +80,7 @@ String zip = ParamUtil.getString(request, "zip");
 			<liferay-ui:search-container-results>
 
 				<%
-				if (userIds.size() > 0) {
+				if (userIds != null) {
 					userDynamicQuery.add(userIdProperty.in(userIds));
 
 					results = UserLocalServiceUtil.dynamicQuery(userDynamicQuery, searchContainer.getStart(), searchContainer.getEnd());
@@ -84,14 +100,13 @@ String zip = ParamUtil.getString(request, "zip");
 
 				<liferay-ui:search-container-column-text
 					buffer="buffer"
-					name='<%= LanguageUtil.format(pageContext, "search-results-for-x", HtmlUtil.escape(zip)) %>'
 				>
 
 				<%
 				buffer.append(curUser.getFirstName());
 				buffer.append(StringPool.SPACE);
-				buffer.append(StringUtil.toUpperCase(curUser.getLastName().substring(0, 1)));
-				buffer.append(StringPool.PERIOD);
+				buffer.append(StringUtil.toUpperCase(Validator.isNotNull(curUser.getLastName()) ? curUser.getLastName().substring(0, 1) : StringPool.BLANK));
+				buffer.append(Validator.isNotNull(curUser.getLastName()) ? StringPool.PERIOD : StringPool.BLANK);
 				buffer.append(StringPool.SPACE);
 				buffer.append(StringPool.OPEN_PARENTHESIS);
 				buffer.append(curUser.getScreenName());
