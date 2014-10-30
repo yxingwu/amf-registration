@@ -39,57 +39,12 @@ String zip = ParamUtil.getString(request, "zip");
 			delta="<%= 5 %>"
 			emptyResultsMessage="no-results-found-please-try-a-different-search-criteria"
 			iteratorURL="<%= portletURL %>"
+			total="<%= MyUserLocalServiceUtil.countByZip(zip) %>"
 		>
 
-			<%
-			DynamicQuery addressDynamicQuery = DynamicQueryFactoryUtil.forClass(Address.class);
-
-			addressDynamicQuery.setProjection(ProjectionFactoryUtil.distinct(ProjectionFactoryUtil.property("classPK")));
-
-			Property zipProperty = PropertyFactoryUtil.forName("zip");
-
-			addressDynamicQuery.add(zipProperty.eq(zip));
-
-			Property primaryProperty = PropertyFactoryUtil.forName("primary");
-
-			addressDynamicQuery.add(primaryProperty.eq(true));
-
-			List contactIds = AddressLocalServiceUtil.dynamicQuery(addressDynamicQuery);
-
-			List userIds = null;
-
-			if (contactIds.size() > 0) {
-				DynamicQuery contactDynamicQuery = DynamicQueryFactoryUtil.forClass(Contact.class);
-
-				contactDynamicQuery.setProjection(ProjectionFactoryUtil.property("classPK"));
-
-				Property contactIdProperty = PropertyFactoryUtil.forName("contactId");
-
-				contactDynamicQuery.add(contactIdProperty.in(contactIds));
-
-				userIds = ContactLocalServiceUtil.dynamicQuery(contactDynamicQuery);
-			}
-
-			searchContainer.setTotal(contactIds.size());
-
-			DynamicQuery userDynamicQuery = DynamicQueryFactoryUtil.forClass(User.class);
-
-			Property userIdProperty = PropertyFactoryUtil.forName("userId");
-			%>
-
-			<liferay-ui:search-container-results>
-
-				<%
-				if (userIds != null) {
-					userDynamicQuery.add(userIdProperty.in(userIds));
-
-					results = UserLocalServiceUtil.dynamicQuery(userDynamicQuery, searchContainer.getStart(), searchContainer.getEnd());
-				}
-
-				searchContainer.setResults(results);
-				%>
-
-			</liferay-ui:search-container-results>
+			<liferay-ui:search-container-results
+				results="<%= MyUserLocalServiceUtil.getUsersByZip(zip, searchContainer.getStart(), searchContainer.getEnd()) %>"
+			/>
 
 			<liferay-ui:search-container-row
 				className="com.liferay.portal.model.User"

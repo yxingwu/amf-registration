@@ -21,6 +21,7 @@
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
 <%@ page import="com.amf.registration.service.MonitorEventLocalServiceUtil" %><%@
+page import="com.amf.registration.service.MyUserLocalServiceUtil" %><%@
 page import="com.amf.registration.service.permission.MonitorEventPermission" %><%@
 page import="com.amf.registration.util.CountryConstants" %><%@
 page import="com.amf.registration.util.MonitorEventTypes" %><%@
@@ -42,11 +43,6 @@ page import="com.liferay.portal.ReservedUserScreenNameException" %><%@
 page import="com.liferay.portal.TermsOfUseException" %><%@
 page import="com.liferay.portal.UserPasswordException" %><%@
 page import="com.liferay.portal.UserScreenNameException" %><%@
-page import="com.liferay.portal.kernel.dao.orm.DynamicQuery" %><%@
-page import="com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil" %><%@
-page import="com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil" %><%@
-page import="com.liferay.portal.kernel.dao.orm.Property" %><%@
-page import="com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
 page import="com.liferay.portal.kernel.util.CalendarFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
@@ -55,14 +51,11 @@ page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.StringPool" %><%@
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
-page import="com.liferay.portal.model.Address" %><%@
 page import="com.liferay.portal.model.Contact" %><%@
 page import="com.liferay.portal.model.Country" %><%@
 page import="com.liferay.portal.model.Region" %><%@
 page import="com.liferay.portal.model.User" %><%@
 page import="com.liferay.portal.security.permission.ActionKeys" %><%@
-page import="com.liferay.portal.service.AddressLocalServiceUtil" %><%@
-page import="com.liferay.portal.service.ContactLocalServiceUtil" %><%@
 page import="com.liferay.portal.service.CountryServiceUtil" %><%@
 page import="com.liferay.portal.service.RegionServiceUtil" %><%@
 page import="com.liferay.portal.service.UserLocalServiceUtil" %><%@

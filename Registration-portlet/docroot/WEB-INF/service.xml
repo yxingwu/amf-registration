@@ -40,4 +40,10 @@
 			<finder-column name="userId" />
 		</finder>
 	</entity>
+	<entity name="MyUser" local-service="true" remote-service="false" table="user_">
+
+		<!-- PK fields -->
+
+		<column name="userId" type="long" primary="true" />
+	</entity>
 </service-builder>
