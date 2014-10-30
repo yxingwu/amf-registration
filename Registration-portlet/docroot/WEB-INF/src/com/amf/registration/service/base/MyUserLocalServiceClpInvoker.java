@@ -14,7 +14,7 @@
 
 package com.amf.registration.service.base;
 
-import com.amf.registration.service.MonitorEventLocalServiceUtil;
+import com.amf.registration.service.MyUserLocalServiceUtil;
 
 import java.util.Arrays;
 
@@ -22,26 +22,26 @@ import java.util.Arrays;
  * @author liferay
  * @generated
  */
-public class MonitorEventLocalServiceClpInvoker {
-	public MonitorEventLocalServiceClpInvoker() {
-		_methodName0 = "addMonitorEvent";
+public class MyUserLocalServiceClpInvoker {
+	public MyUserLocalServiceClpInvoker() {
+		_methodName0 = "addMyUser";
 
 		_methodParameterTypes0 = new String[] {
-				"com.amf.registration.model.MonitorEvent"
+				"com.amf.registration.model.MyUser"
 			};
 
-		_methodName1 = "createMonitorEvent";
+		_methodName1 = "createMyUser";
 
 		_methodParameterTypes1 = new String[] { "long" };
 
-		_methodName2 = "deleteMonitorEvent";
+		_methodName2 = "deleteMyUser";
 
 		_methodParameterTypes2 = new String[] { "long" };
 
-		_methodName3 = "deleteMonitorEvent";
+		_methodName3 = "deleteMyUser";
 
 		_methodParameterTypes3 = new String[] {
-				"com.amf.registration.model.MonitorEvent"
+				"com.amf.registration.model.MyUser"
 			};
 
 		_methodName4 = "dynamicQuery";
@@ -80,11 +80,11 @@ public class MonitorEventLocalServiceClpInvoker {
 				"com.liferay.portal.kernel.dao.orm.Projection"
 			};
 
-		_methodName10 = "fetchMonitorEvent";
+		_methodName10 = "fetchMyUser";
 
 		_methodParameterTypes10 = new String[] { "long" };
 
-		_methodName11 = "getMonitorEvent";
+		_methodName11 = "getMyUser";
 
 		_methodParameterTypes11 = new String[] { "long" };
 
@@ -92,18 +92,18 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		_methodParameterTypes12 = new String[] { "java.io.Serializable" };
 
-		_methodName13 = "getMonitorEvents";
+		_methodName13 = "getMyUsers";
 
 		_methodParameterTypes13 = new String[] { "int", "int" };
 
-		_methodName14 = "getMonitorEventsCount";
+		_methodName14 = "getMyUsersCount";
 
 		_methodParameterTypes14 = new String[] {  };
 
-		_methodName15 = "updateMonitorEvent";
+		_methodName15 = "updateMyUser";
 
 		_methodParameterTypes15 = new String[] {
-				"com.amf.registration.model.MonitorEvent"
+				"com.amf.registration.model.MyUser"
 			};
 
 		_methodName38 = "getBeanIdentifier";
@@ -114,72 +114,57 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		_methodParameterTypes39 = new String[] { "java.lang.String" };
 
-		_methodName44 = "addEvent";
+		_methodName44 = "countByZip";
 
-		_methodParameterTypes44 = new String[] {
-				"long", "java.lang.String", "int",
-				"com.liferay.portal.service.ServiceContext"
-			};
+		_methodParameterTypes44 = new String[] { "java.lang.String" };
 
-		_methodName45 = "getEventsByType";
+		_methodName45 = "getUsersByZip";
 
-		_methodParameterTypes45 = new String[] { "int", "int", "int" };
-
-		_methodName46 = "getEventsByTypeAndUser";
-
-		_methodParameterTypes46 = new String[] { "int", "long", "int", "int" };
-
-		_methodName47 = "getEventsByTypeAndUserCount";
-
-		_methodParameterTypes47 = new String[] { "int", "long" };
-
-		_methodName48 = "getEventsByTypeCount";
-
-		_methodParameterTypes48 = new String[] { "int" };
+		_methodParameterTypes45 = new String[] { "java.lang.String", "int", "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
 		Object[] arguments) throws Throwable {
 		if (_methodName0.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes0, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.addMonitorEvent((com.amf.registration.model.MonitorEvent)arguments[0]);
+			return MyUserLocalServiceUtil.addMyUser((com.amf.registration.model.MyUser)arguments[0]);
 		}
 
 		if (_methodName1.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes1, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.createMonitorEvent(((Long)arguments[0]).longValue());
+			return MyUserLocalServiceUtil.createMyUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName2.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes2, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.deleteMonitorEvent(((Long)arguments[0]).longValue());
+			return MyUserLocalServiceUtil.deleteMyUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName3.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes3, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.deleteMonitorEvent((com.amf.registration.model.MonitorEvent)arguments[0]);
+			return MyUserLocalServiceUtil.deleteMyUser((com.amf.registration.model.MyUser)arguments[0]);
 		}
 
 		if (_methodName4.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes4, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.dynamicQuery();
+			return MyUserLocalServiceUtil.dynamicQuery();
 		}
 
 		if (_methodName5.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes5, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return MyUserLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName6.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes6, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return MyUserLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
 		}
 
 		if (_methodName7.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes7, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return MyUserLocalServiceUtil.dynamicQuery((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue(),
 				(com.liferay.portal.kernel.util.OrderByComparator)arguments[3]);
@@ -187,90 +172,68 @@ public class MonitorEventLocalServiceClpInvoker {
 
 		if (_methodName8.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes8, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
+			return MyUserLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0]);
 		}
 
 		if (_methodName9.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes9, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
+			return MyUserLocalServiceUtil.dynamicQueryCount((com.liferay.portal.kernel.dao.orm.DynamicQuery)arguments[0],
 				(com.liferay.portal.kernel.dao.orm.Projection)arguments[1]);
 		}
 
 		if (_methodName10.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes10, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.fetchMonitorEvent(((Long)arguments[0]).longValue());
+			return MyUserLocalServiceUtil.fetchMyUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName11.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes11, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEvent(((Long)arguments[0]).longValue());
+			return MyUserLocalServiceUtil.getMyUser(((Long)arguments[0]).longValue());
 		}
 
 		if (_methodName12.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes12, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
+			return MyUserLocalServiceUtil.getPersistedModel((java.io.Serializable)arguments[0]);
 		}
 
 		if (_methodName13.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes13, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEvents(((Integer)arguments[0]).intValue(),
+			return MyUserLocalServiceUtil.getMyUsers(((Integer)arguments[0]).intValue(),
 				((Integer)arguments[1]).intValue());
 		}
 
 		if (_methodName14.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes14, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getMonitorEventsCount();
+			return MyUserLocalServiceUtil.getMyUsersCount();
 		}
 
 		if (_methodName15.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes15, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.updateMonitorEvent((com.amf.registration.model.MonitorEvent)arguments[0]);
+			return MyUserLocalServiceUtil.updateMyUser((com.amf.registration.model.MyUser)arguments[0]);
 		}
 
 		if (_methodName38.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes38, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getBeanIdentifier();
+			return MyUserLocalServiceUtil.getBeanIdentifier();
 		}
 
 		if (_methodName39.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes39, parameterTypes)) {
-			MonitorEventLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
+			MyUserLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
 		if (_methodName44.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes44, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.addEvent(((Long)arguments[0]).longValue(),
-				(java.lang.String)arguments[1],
-				((Integer)arguments[2]).intValue(),
-				(com.liferay.portal.service.ServiceContext)arguments[3]);
+			return MyUserLocalServiceUtil.countByZip((java.lang.String)arguments[0]);
 		}
 
 		if (_methodName45.equals(name) &&
 				Arrays.deepEquals(_methodParameterTypes45, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getEventsByType(((Integer)arguments[0]).intValue(),
+			return MyUserLocalServiceUtil.getUsersByZip((java.lang.String)arguments[0],
 				((Integer)arguments[1]).intValue(),
 				((Integer)arguments[2]).intValue());
-		}
-
-		if (_methodName46.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getEventsByTypeAndUser(((Integer)arguments[0]).intValue(),
-				((Long)arguments[1]).longValue(),
-				((Integer)arguments[2]).intValue(),
-				((Integer)arguments[3]).intValue());
-		}
-
-		if (_methodName47.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes47, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getEventsByTypeAndUserCount(((Integer)arguments[0]).intValue(),
-				((Long)arguments[1]).longValue());
-		}
-
-		if (_methodName48.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes48, parameterTypes)) {
-			return MonitorEventLocalServiceUtil.getEventsByTypeCount(((Integer)arguments[0]).intValue());
 		}
 
 		throw new UnsupportedOperationException();
@@ -316,10 +279,4 @@ public class MonitorEventLocalServiceClpInvoker {
 	private String[] _methodParameterTypes44;
 	private String _methodName45;
 	private String[] _methodParameterTypes45;
-	private String _methodName46;
-	private String[] _methodParameterTypes46;
-	private String _methodName47;
-	private String[] _methodParameterTypes47;
-	private String _methodName48;
-	private String[] _methodParameterTypes48;
 }

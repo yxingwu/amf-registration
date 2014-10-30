@@ -8,4 +8,7 @@
 		<field name="eventDate" type="Date" />
 		<field name="eventType" type="int" />
 	</model>
+	<model name="com.amf.registration.model.MyUser">
+		<field name="userId" type="long" />
+	</model>
 </model-hints>

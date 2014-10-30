@@ -3,4 +3,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	<bean id="com.amf.registration.service.MonitorEventLocalService" class="com.amf.registration.service.impl.MonitorEventLocalServiceImpl" />
 	<bean id="com.amf.registration.service.persistence.MonitorEventPersistence" class="com.amf.registration.service.persistence.MonitorEventPersistenceImpl" parent="basePersistence" />
+	<bean id="com.amf.registration.service.MyUserLocalService" class="com.amf.registration.service.impl.MyUserLocalServiceImpl" />
+	<bean id="com.amf.registration.service.persistence.MyUserPersistence" class="com.amf.registration.service.persistence.MyUserPersistenceImpl" parent="basePersistence" />
+	<bean id="com.amf.registration.service.persistence.MyUserFinder" class="com.amf.registration.service.persistence.MyUserFinderImpl" parent="basePersistence" />
 </beans>

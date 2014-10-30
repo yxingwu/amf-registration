@@ -15,6 +15,7 @@
 package com.amf.registration.service;
 
 import com.amf.registration.model.MonitorEventClp;
+import com.amf.registration.model.MyUserClp;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -106,6 +107,10 @@ public class ClpSerializer {
 			return translateInputMonitorEvent(oldModel);
 		}
 
+		if (oldModelClassName.equals(MyUserClp.class.getName())) {
+			return translateInputMyUser(oldModel);
+		}
+
 		return oldModel;
 	}
 
@@ -125,6 +130,16 @@ public class ClpSerializer {
 		MonitorEventClp oldClpModel = (MonitorEventClp)oldModel;
 
 		BaseModel<?> newModel = oldClpModel.getMonitorEventRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
+	public static Object translateInputMyUser(BaseModel<?> oldModel) {
+		MyUserClp oldClpModel = (MyUserClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getMyUserRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -151,6 +166,11 @@ public class ClpSerializer {
 		if (oldModelClassName.equals(
 					"com.amf.registration.model.impl.MonitorEventImpl")) {
 			return translateOutputMonitorEvent(oldModel);
+		}
+
+		if (oldModelClassName.equals(
+					"com.amf.registration.model.impl.MyUserImpl")) {
+			return translateOutputMyUser(oldModel);
 		}
 
 		return oldModel;
@@ -237,6 +257,10 @@ public class ClpSerializer {
 			return new com.amf.registration.NoSuchMonitorEventException();
 		}
 
+		if (className.equals("com.amf.registration.NoSuchMyUserException")) {
+			return new com.amf.registration.NoSuchMyUserException();
+		}
+
 		return throwable;
 	}
 
@@ -246,6 +270,16 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setMonitorEventRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputMyUser(BaseModel<?> oldModel) {
+		MyUserClp newModel = new MyUserClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setMyUserRemoteModel(oldModel);
 
 		return newModel;
 	}

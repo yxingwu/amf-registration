@@ -22,8 +22,21 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
+	<mapped-superclass class="com.amf.registration.model.impl.MyUserModelImpl">
+		<attributes>
+			<id name="userId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
 	<entity class="com.amf.registration.model.impl.MonitorEventImpl" name="MonitorEvent">
 		<table name="amf_MonitorEvent" />
+		<attributes />
+	</entity>
+	<entity class="com.amf.registration.model.impl.MyUserImpl" name="MyUser">
+		<table name="user_" />
 		<attributes />
 	</entity>
 </entity-mappings>

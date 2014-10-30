@@ -16,6 +16,7 @@ package com.amf.registration.service.messaging;
 
 import com.amf.registration.service.ClpSerializer;
 import com.amf.registration.service.MonitorEventLocalServiceUtil;
+import com.amf.registration.service.MyUserLocalServiceUtil;
 
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
@@ -36,6 +37,8 @@ public class ClpMessageListener extends BaseMessageListener {
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
 			MonitorEventLocalServiceUtil.clearService();
+
+			MyUserLocalServiceUtil.clearService();
 		}
 	}
 }

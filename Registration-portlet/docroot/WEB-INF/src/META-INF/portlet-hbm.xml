@@ -3,6 +3,7 @@
 
 <hibernate-mapping default-lazy="false" auto-import="false">
 	<import class="com.amf.registration.model.MonitorEvent" />
+	<import class="com.amf.registration.model.MyUser" />
 	<class name="com.amf.registration.model.impl.MonitorEventImpl" table="amf_MonitorEvent">
 		<cache usage="read-write" />
 		<id name="eventId" type="long">
@@ -12,5 +13,11 @@
 		<property name="ip" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="eventDate" type="org.hibernate.type.TimestampType" />
 		<property name="eventType" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.amf.registration.model.impl.MyUserImpl" table="user_">
+		<cache usage="read-write" />
+		<id name="userId" type="long">
+			<generator class="assigned" />
+		</id>
 	</class>
 </hibernate-mapping>

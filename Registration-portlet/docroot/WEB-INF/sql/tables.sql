@@ -5,3 +5,7 @@ create table amf_MonitorEvent (
 	eventDate DATE null,
 	eventType INTEGER
 );
+
+create table user_ (
+	userId LONG not null primary key
+);
