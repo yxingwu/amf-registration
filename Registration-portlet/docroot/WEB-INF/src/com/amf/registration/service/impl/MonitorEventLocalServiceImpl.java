@@ -38,6 +38,8 @@ public class MonitorEventLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		System.out.println("This is for testing gitleaks, it is a password word");
+
 		long eventId = counterLocalService.increment();
 
 		MonitorEvent monitorEvent = monitorEventPersistence.create(eventId);
