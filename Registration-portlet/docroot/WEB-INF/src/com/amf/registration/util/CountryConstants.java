@@ -21,4 +21,5 @@ public class CountryConstants {
 
 	public static final String UNITED_STATES = "united-states";
 
+	public static final String TEST = "test";
 }
