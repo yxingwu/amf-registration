@@ -23,4 +23,5 @@ public class CountryConstants {
 
 	public static final String AWS_KEY = "aws01234567890123456789\"0123456789012345678901234567890123456789\"";
 
+	public static final String TEST = "test";
 }
