@@ -38,6 +38,8 @@ public class MonitorEventLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		System.out.println("This is test message");
+
 		long eventId = counterLocalService.increment();
 
 		MonitorEvent monitorEvent = monitorEventPersistence.create(eventId);
