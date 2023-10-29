@@ -38,6 +38,8 @@ public class MonitorEventLocalServiceImpl
 			ServiceContext serviceContext)
 		throws PortalException, SystemException {
 
+		String password = "fake123Passw5or4d";
+
 		System.out.println("This is test message");
 
 		long eventId = counterLocalService.increment();
